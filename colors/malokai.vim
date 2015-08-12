@@ -1,4 +1,4 @@
-"" 
+""
 "" Vim color scheme
 "" Maintainer: Joseph Yu
 "" Last Change: 2015 8 10
@@ -37,17 +37,16 @@ hi	CursorLineNr	cterm=bold	ctermfg=252		ctermbg=235		gui=NONE	guifg=#FFFFFF	guib
 "hi	ModeMsg		cterm=bold		ctermfg=121		ctermbg=0		gui=bold	guifg=#9CF3BE	guibg=#000000
 "hi	MoreMsg		cterm=bold		ctermfg=153		ctermbg=0		gui=bold	guifg=#BFD8F1	guibg=#000000
 "hi	NonText		cterm=bold		ctermfg=135		ctermbg=0		gui=bold	guifg=#BE86F5	guibg=#000000
-"hi	Pmenu		cterm=bold		ctermbg=236		ctermfg=255		gui=bold	guibg=#303030	guifg=#FFFFFF
-"hi	PmenuSel	cterm=bold		ctermbg=239		ctermfg=255		gui=bold	guibg=#4E4E4E	guifg=#FFFFFF
-"hi	PmenuSbar	ctermbg=234		ctermfg=234		guibg=#006600	guifg=#1C1C1C
-"hi	PmenuThumb	ctermbg=242		ctermfg=242		guibg=#009900	guifg=#848484
+hi	Pmenu		cterm=bold		ctermbg=236		ctermfg=255		gui=bold	guibg=#303030	guifg=#FFFFFF
+hi	PmenuSel	cterm=bold		ctermbg=239		ctermfg=255		gui=bold	guibg=#4E4E4E	guifg=#FFFFFF
+hi	PmenuSbar	ctermbg=234		ctermfg=234		guibg=#006600	guifg=#1C1C1C
+hi	PmenuThumb	ctermbg=242		ctermfg=242		guibg=#009900	guifg=#848484
 "hi	Question	ctermbg=0		ctermfg=40		guibg=#000000	guifg=#09D62C
 "hi	Search		ctermfg=NONE	ctermbg=236		guifg=NONE		guibg=#303030
 "hi	SpecialKey	ctermfg=69		guifg=#7DA1F2
 "hi	TabLine		cterm=bold		ctermfg=89		ctermbg=0		gui=bold		guifg=#7E50F1	guibg=#000000
 "hi	TabLineFill	cterm=bold		ctermfg=0		ctermbg=0		gui=bold		guifg=#000000	guibg=#000000
 "hi	TabLineSel	cterm=underline,bold			ctermfg=161		ctermbg=233		gui=underline,bold	guifg=#DC3476	guibg=#121212
-"hi	Title		cterm=NONE		ctermfg=214		gui=NONE		guifg=#F9BB34
 hi	Visual		cterm=bold		ctermfg=255		ctermbg=166		gui=reverse		guibg=NONE
 "hi	VisualNOS	cterm=underline,bold			gui=underline,bold
 "hi	WarningMsg	cterm=bold		ctermbg=160		ctermfg=255		gui=bold		guibg=#DB2F22	guifg=#FFFFFF
@@ -89,6 +88,7 @@ hi	StorageClass	cterm=bold	ctermfg=161		gui=bold	guifg=#159FF8
 hi	String		cterm=NONE		ctermfg=227		gui=NONE	guifg=#09D62C
 hi	Structure	cterm=bold		ctermfg=161		gui=bold	guifg=#159FF8
 hi	Tag			cterm=bold		ctermfg=161		gui=bold	guifg=#F3B83F
+hi	Title		cterm=bold		ctermfg=255		gui=NONE		guifg=#F9BB34
 hi	Todo		cterm=bold		ctermfg=161		ctermbg=214	gui=bold	guifg=#DA3D7A	guibg=#F3B83F
 hi	Type		cterm=bold		ctermfg=45		gui=bold	guifg=#159FF8
 hi	Typedef		cterm=bold		ctermfg=161		gui=bold	guifg=#159FF8

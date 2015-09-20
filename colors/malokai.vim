@@ -33,7 +33,7 @@ hi	FoldColumn	ctermfg=69		guifg=#76A1F8
 hi	IncSearch	cterm=bold		ctermbg=238		gui=bold		guibg=#3A3A3A
 hi	LineNr			cterm=NONE	ctermfg=246		ctermbg=234		gui=NONE	guifg=#b8b6b6	guibg=#121212
 hi	CursorLineNr	cterm=bold	ctermfg=252		ctermbg=234		gui=NONE	guifg=#FFFFFF	guibg=#1C1C1C
-hi	MatchParen	cterm=bold		ctermfg=236		ctermbg=227		gui=bold	guifg=#000000	guibg=#19a1f6
+hi	MatchParen	cterm=bold		ctermfg=227		ctermbg=236		gui=bold	guifg=#000000	guibg=#19a1f6
 "hi	ModeMsg		cterm=bold		ctermfg=121		ctermbg=0		gui=bold	guifg=#9CF3BE	guibg=#000000
 hi	MoreMsg		cterm=bold		ctermfg=153		ctermbg=0		gui=bold	guifg=#BFD8F1	guibg=#000000
 hi	NonText		cterm=bold		ctermfg=161		ctermbg=NONE	gui=bold	guifg=#BE86F5	guibg=#000000

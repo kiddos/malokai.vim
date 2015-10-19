@@ -1,7 +1,7 @@
 ""
 "" Vim color scheme
 "" Maintainer: Joseph Yu
-"" Last Change: 2015 8 10
+"" Last Change: 2015 10 19
 ""
 
 hi clear
@@ -21,10 +21,10 @@ hi	CursorIM	cterm=NONE	ctermfg=0	ctermbg=255		gui=NONE	guifg=#000000	guibg=#FFFF
 hi	CursorColumn	cterm=NONE	ctermfg=NONE	ctermbg=NONE	gui=NONE	guifg=NONE	guibg=NONE
 hi	CursorLine		cterm=NONE	ctermfg=NONE	ctermbg=234		gui=NONE	guifg=NONE	guibg=#121212
 hi	Directory	cterm=bold		ctermfg=33		gui=bold	guifg=#0CB627
-"hi	DiffAdd		ctermbg=236		guibg=#474646
-"hi	DiffChange	ctermbg=236		guibg=#474646
-"hi	DiffDelete	ctermbg=236		cterm=bold		gui=bold		guibg=#474646
-"hi	DiffText	ctermbg=236		ctermfg=82		cterm=bold		gui=bold	guibg=#474646	guifg=#78EC3B
+hi	DiffAdd		ctermbg=236		guibg=#474646
+hi	DiffChange	ctermbg=236		guibg=#474646
+hi	DiffDelete	ctermbg=236		cterm=bold		gui=bold		guibg=#474646
+hi	DiffText	ctermbg=236		ctermfg=82		cterm=bold		gui=bold	guibg=#474646	guifg=#78EC3B
 hi	ErrorMsg	cterm=bold,italic	ctermfg=NONE	ctermbg=161		guifg=#FFFFFF	guifg=#D83528
 hi	VertSplit	cterm=bold			ctermfg=16		ctermbg=33		guibg=#000000	guifg=#7159FF
 hi	Folded		ctermfg=33		guifg=#76A1F8
@@ -35,7 +35,7 @@ hi	LineNr			cterm=NONE	ctermfg=246		ctermbg=234		gui=NONE	guifg=#b8b6b6	guibg=#1
 hi	CursorLineNr	cterm=bold	ctermfg=252		ctermbg=234		gui=NONE	guifg=#FFFFFF	guibg=#1C1C1C
 hi	MatchParen	cterm=bold		ctermfg=227		ctermbg=236		gui=bold	guifg=#000000	guibg=#19a1f6
 "hi	ModeMsg		cterm=bold		ctermfg=121		ctermbg=0		gui=bold	guifg=#9CF3BE	guibg=#000000
-hi	MoreMsg		cterm=bold		ctermfg=153		ctermbg=0		gui=bold	guifg=#BFD8F1	guibg=#000000
+hi	MoreMsg		cterm=bold		ctermfg=161		ctermbg=0		gui=bold	guifg=#BFD8F1	guibg=#000000
 hi	NonText		cterm=bold		ctermfg=161		ctermbg=NONE	gui=bold	guifg=#BE86F5	guibg=#000000
 hi	Pmenu		cterm=bold		ctermbg=236		ctermfg=255		gui=bold	guibg=#303030	guifg=#FFFFFF
 hi	PmenuSel	cterm=bold		ctermbg=239		ctermfg=255		gui=bold	guibg=#4E4E4E	guifg=#FFFFFF

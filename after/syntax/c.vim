@@ -239,7 +239,7 @@ syn keyword	cKeyword	include
 syn keyword cDefine		define
 syn keyword cPreproc	undef if else elif endif
 syn keyword cPreproc	ifdef ifndef
-syn match	cInclude	"#include *["<][0-9a-zA-Z./]*[">]" contains=cSymbol,cKeyword
+syn match	cInclude	"#include\s*["<][0-9a-zA-Z._/]*[">]" contains=cSymbol,cKeyword
 syn match	cBraces		"[{}]"
 "syn match	cIdentifier	"[_$]*[a-zA-Z_$][0-9a-zA-Z_$]*"
 

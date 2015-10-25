@@ -226,28 +226,19 @@ syn keyword cPOSIXFunction clrscr
 syn keyword cPOSIXFunction getch
 syn keyword cPOSIXFunction getche
 
-" C Ansi Constant
-
-
-
-
-
-
-
-syn match 	cSymbol		"#"
+syn match 	cSymbol		"\s*\t*#"
 syn keyword	cKeyword	include
 syn keyword cDefine		define
 syn keyword cPreproc	undef if else elif endif
 syn keyword cPreproc	ifdef ifndef
-syn match	cInclude	"#include\s*["<][0-9a-zA-Z._/]*[">]" contains=cSymbol,cKeyword
+syn match	cInclude	"\s*\t*#include\s*["<][0-9a-zA-Z._/]*[">]" contains=cSymbol,cKeyword
 syn match	cBraces		"[{}]"
-"syn match	cIdentifier	"[_$]*[a-zA-Z_$][0-9a-zA-Z_$]*"
 
+hi def link cPOSIXFunction cAnsiFunction
 hi def link cKeyword Keyword
 hi def link cInclude Include
 hi def link cDefine Define
 hi def link cPreproc PreProc
-"hi def link cIdentifier Identifier
 hi def link cInclude Include
 hi def link cBraces Delimiter
 hi def link cSymbol Symbol

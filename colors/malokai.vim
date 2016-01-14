@@ -15,20 +15,23 @@ if exists("syntax_on")
   syntax reset
 endif
 
-let main_background = "233"
-let highlight_background = "234"
-let strong_highlight_background = "235"
-let menu_background = "236"
-let main_text = "253"
-let error_text = "214"
-let warning_text = "161"
+" terminal colors
+let term_text_color = "253"
+let term_bg_color = "233"
+let term_hl_color = "234"
+let term_strong_hl_color = "235"
+" gui color
+let gui_text_color = "#F0F0F0"
+let gui_bg_color = "#0A0A0A"
+let gui_hl_color = "#121212"
+let gui_strong_hl_color = "#161616"
 
 " normal & cursor {{{
-hi	Normal		  cterm=NONE	  ctermfg=255	ctermbg=233   gui=NONE  guifg=#F0F0F0	  guibg=#0A0A0A
-hi	Cursor		  cterm=reverse	  gui=NONE     guifg=#0A0A0A guibg=#F0F0F0
-hi	CursorIM	  cterm=reverse	  gui=NONE     guifg=#0A0A0A guibg=#F0F0F0
-hi	CursorColumn  cterm=NONE	ctermfg=NONE	ctermbg=234		gui=NONE	guifg=NONE	guibg=#121212
-hi	CursorLine	  cterm=NONE	ctermfg=NONE	ctermbg=234		gui=NONE	guifg=NONE	guibg=#121212
+execute "hi Normal cterm=none ctermfg=".term_text_color." ctermbg=".term_bg_color." gui=none guifg=".gui_text_color." guibg=".gui_bg_color
+execute "hi Cursor cterm=reverse gui=none guifg=".gui_bg_color." guibg=".gui_text_color
+execute "hi CursorIM cterm=reverse gui=none guifg=".gui_bg_color." guibg=".gui_text_color
+execute "hi CursorColumn cterm=none ctermfg=none ctermbg=".term_hl_color." gui=none guifg=none guibg=".gui_hl_color
+execute "hi CursorLine cterm=none ctermfg=none ctermbg=".term_hl_color." gui=none guifg=none guibg=".gui_hl_color
 " }}}
 " diff {{{
 hi	DiffAdd		cterm=bold  ctermbg=NONE  ctermfg=NONE  gui=bold    guibg=NONE  guifg=NONE

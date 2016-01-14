@@ -21,12 +21,26 @@ let term_bg_color = "233"
 let term_hl_color = "234"
 let term_strong_hl_color = "235"
 let term_diff_delete = "27"
+let term_fold_color = "250"
+let term_dark_bg_color = "232"
+let term_warning_text_color = "214"
+let term_light_text_color = "246"
+let term_popup_bg_color = "236"
+let term_popup_sel_color = "239"
+let term_popup_thumb_color = "242"
 " gui color
 let gui_text_color = "#F0F0F0"
 let gui_bg_color = "#0A0A0A"
 let gui_hl_color = "#121212"
 let gui_strong_hl_color = "#161616"
 let gui_diff_delete = "#5882FA"
+let gui_fold_color = "#BDBDBD"
+let gui_dark_bg_color = "#060606"
+let gui_warning_text_color = "#ED9F0D"
+let gui_light_text_color = "#666666"
+let gui_popup_bg_color = "#202020"
+let gui_popup_sel_color = "#363636"
+let gui_popup_thumb_color = "#565656"
 
 " normal & cursor {{{
 execute "hi Normal        cterm=none ctermfg=".term_text_color." ctermbg=".term_bg_color." gui=none guifg=".gui_text_color." guibg=".gui_bg_color
@@ -42,37 +56,37 @@ execute "hi	DiffDelete	cterm=bold ctermbg=none ctermfg=".term_diff_delete." gui=
 execute "hi	DiffText	cterm=bold ctermbg=none ctermfg=".term_diff_delete." gui=bold guibg=none guifg=".gui_diff_delete
 " }}}
 " fold {{{
-hi	Folded		cterm=NONE  ctermbg=NONE  ctermfg=252		guifg=#76A1F8
-hi	FoldColumn	cterm=NONE  ctermbg=NONE  ctermfg=252		guifg=#76A1F8
+execute "hi Folded        cterm=none ctermbg=none  ctermfg=".term_fold_color." gui=none guibg=none guifg=".gui_fold_color
+execute "hi FoldedColumn  cterm=none ctermbg=none  ctermfg=".term_fold_color." gui=none guibg=none guifg=".gui_fold_color
 " }}}
 " search {{{
-hi	Search		cterm=NONE  ctermbg=232	  gui=NONE  guibg=#030303
-hi	IncSearch	cterm=bold	ctermbg=232	  gui=bold  guibg=#030303
+execute "hi	Search		cterm=none  ctermfg=none ctermbg=".term_dark_bg_color." gui=none guifg=none guibg=".gui_dark_bg_color
+execute "hi	IncSearch	cterm=bold	ctermfg=none ctermbg=".term_dark_bg_color." gui=bold guifg=none guibg=".gui_dark_bg_color
 " }}}
 " line number {{{
-hi	LineNr		  cterm=NONE  ctermfg=246   ctermbg=234	  gui=NONE	guifg=#BDBDBD	guibg=#121212
-hi	CursorLineNr  cterm=bold  ctermfg=252	ctermbg=235	  gui=bold	guifg=#E6E6E6	guibg=#202020
+execute "hi	LineNr		  cterm=none  ctermfg=".term_light_text_color." ctermbg=".term_hl_color." gui=none	guifg=".gui_light_text_color." guibg=".gui_hl_color
+execute "hi	CursorLineNr  cterm=bold  ctermfg=".term_text_color." ctermbg=".term_strong_hl_color." gui=bold	guifg=".gui_text_color." guibg=".gui_strong_hl_color
 " }}}
 " message {{{
-hi	ErrorMsg	cterm=bold	  ctermfg=214   ctermbg=NONE  gui=bold  guifg=#F5B91F   guibg=NONE
-hi	MoreMsg		cterm=bold	  ctermfg=161	ctermbg=NONE  gui=bold	guifg=#F51F3F	guibg=NONE
-hi	WarningMsg	cterm=bold	  ctermfg=246   ctermbg=NONE  gui=bold	guifg=#BDBDBD	guibg=NONE
-hi	Question	cterm=bold    ctermfg=252 	ctermbg=NONE  gui=bold  guifg=#E6E6E6	guibg=NONE
+execute "hi	ErrorMsg	cterm=bold	ctermfg=".term_warning_text_color." ctermbg=none  gui=bold  guifg=".gui_warning_text_color." guibg=none"
+execute "hi	MoreMsg		cterm=bold	ctermfg=".term_text_color."	ctermbg=none gui=bold guifg=".gui_text_color." guibg=none"
+execute "hi	WarningMsg	cterm=bold	ctermfg=".term_text_color." ctermbg=none gui=bold guifg=".gui_text_color." guibg=none"
+execute "hi	Question	cterm=bold  ctermfg=".term_text_color." ctermbg=none gui=bold guifg=".gui_text_color." guibg=none"
 " }}}
 " popup menu {{{
-hi	Pmenu		cterm=bold	ctermfg=255   ctermbg=236	gui=bold	guibg=#303030	guifg=#FFFFFF
-hi	PmenuSel	cterm=bold	ctermfg=255	  ctermbg=239	gui=bold	guibg=#4E4E4E	guifg=#FFFFFF
-hi	PmenuSbar	cterm=NONE  ctermfg=234	  ctermbg=234	gui=NONE    guibg=#006600	guifg=#1C1C1C
-hi	PmenuThumb	cterm=NONE  ctermfg=242	  ctermbg=242   gui=NONE    guibg=#009900	guifg=#848484
+execute "hi	Pmenu		cterm=bold	ctermfg=".term_text_color." ctermbg=".term_popup_bg_color." gui=bold guifg="gui_text_color." guibg=".gui_popup_bg_color
+execute "hi	PmenuSel	cterm=bold	ctermfg=".term_text_color."	ctermbg=".term_popup_sel_color." gui=bold guifg=".gui_text_color." guibg=".gui_popup_sel_color
+execute "hi	PmenuSbar	cterm=none  ctermfg=".term_hl_color." ctermbg=".term_hl_color."	gui=none guifg=".gui_hl_color." guibg=".gui_hl_color
+execute "hi	PmenuThumb	cterm=none  ctermfg=".term_popup_thumb_color." ctermbg=".term_popup_thumb_color." gui=none guifg=".gui_popup_thumb_color." guibg=".gui_popup_thumb_color
 " }}}
 " Tabs {{{
-hi	TabLine		cterm=bold	          ctermfg=250	ctermbg=236	    gui=bold            guifg=#7E50F1	guibg=#000000
-hi	TabLineFill	cterm=bold	          ctermfg=232	ctermbg=232	    gui=bold		    guifg=#000000	guibg=#000000
-hi	TabLineSel	cterm=underline,bold  ctermfg=252	ctermbg=238	    gui=underline,bold	guifg=#DC3476	guibg=#121212
+execute "hi	TabLine		cterm=bold	          ctermfg=250	ctermbg=236	    gui=bold            guifg=#7E50F1	guibg=#000000"
+execute "hi	TabLineFill	cterm=bold	          ctermfg=232	ctermbg=232	    gui=bold		    guifg=#000000	guibg=#000000"
+execute "hi	TabLineSel	cterm=underline,bold  ctermfg=252	ctermbg=238	    gui=underline,bold	guifg=#DC3476	guibg=#121212"
 " }}}
 " visual {{{
-hi	Visual		cterm=bold		ctermfg=255		ctermbg=130		gui=reverse		guibg=NONE
-hi	VisualNOS	cterm=underline,bold			gui=underline,bold
+execute "hi	Visual		cterm=bold ctermfg=255 ctermbg=130 gui=reverse guibg=NONE"
+execute "hi	VisualNOS	cterm=bold gui=bold"
 " }}}
 " other {{{
 hi	SignColumn	cterm=bold  ctermfg=255   ctermbg=NONE    gui=bold  guifg=#76A1F8   guibg=#000000

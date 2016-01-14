@@ -20,24 +20,26 @@ let term_text_color = "253"
 let term_bg_color = "233"
 let term_hl_color = "234"
 let term_strong_hl_color = "235"
+let term_diff_delete = "27"
 " gui color
 let gui_text_color = "#F0F0F0"
 let gui_bg_color = "#0A0A0A"
 let gui_hl_color = "#121212"
 let gui_strong_hl_color = "#161616"
+let gui_diff_delete = "#5882FA"
 
 " normal & cursor {{{
-execute "hi Normal cterm=none ctermfg=".term_text_color." ctermbg=".term_bg_color." gui=none guifg=".gui_text_color." guibg=".gui_bg_color
-execute "hi Cursor cterm=reverse gui=none guifg=".gui_bg_color." guibg=".gui_text_color
-execute "hi CursorIM cterm=reverse gui=none guifg=".gui_bg_color." guibg=".gui_text_color
-execute "hi CursorColumn cterm=none ctermfg=none ctermbg=".term_hl_color." gui=none guifg=none guibg=".gui_hl_color
-execute "hi CursorLine cterm=none ctermfg=none ctermbg=".term_hl_color." gui=none guifg=none guibg=".gui_hl_color
+execute "hi Normal        cterm=none ctermfg=".term_text_color." ctermbg=".term_bg_color." gui=none guifg=".gui_text_color." guibg=".gui_bg_color
+execute "hi Cursor        cterm=reverse gui=none guifg=".gui_bg_color." guibg=".gui_text_color
+execute "hi CursorIM      cterm=reverse gui=none guifg=".gui_bg_color." guibg=".gui_text_color
+execute "hi CursorColumn  cterm=none ctermfg=none ctermbg=".term_hl_color." gui=none guifg=none guibg=".gui_hl_color
+execute "hi CursorLine    cterm=none ctermfg=none ctermbg=".term_hl_color." gui=none guifg=none guibg=".gui_hl_color
 " }}}
 " diff {{{
-hi	DiffAdd		cterm=bold  ctermbg=NONE  ctermfg=NONE  gui=bold    guibg=NONE  guifg=NONE
-hi	DiffChange	cterm=bold  ctermbg=NONE  ctermfg=NONE  gui=bold    guibg=NONE  guifg=NONE
-hi	DiffDelete	cterm=bold  ctermbg=NONE  ctermfg=27    gui=bold	guibg=NONE  guifg=#5882FA
-hi	DiffText	cterm=bold  ctermbg=NONE  ctermfg=27    gui=bold	guibg=NONE  guifg=#5882FA
+execute "hi DiffAdd     cterm=bold ctermbg=none ctermfg=none gui=bold guibg=none guifg=none"
+execute "hi DiffChange  cterm=bold ctermbg=none ctermfg=none gui=bold guibg=none guifg=none"
+execute "hi	DiffDelete	cterm=bold ctermbg=none ctermfg=".term_diff_delete." gui=bold guibg=none guifg=".gui_diff_delete
+execute "hi	DiffText	cterm=bold ctermbg=none ctermfg=".term_diff_delete." gui=bold guibg=none guifg=".gui_diff_delete
 " }}}
 " fold {{{
 hi	Folded		cterm=NONE  ctermbg=NONE  ctermfg=252		guifg=#76A1F8

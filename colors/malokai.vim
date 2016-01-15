@@ -127,45 +127,53 @@ let term_comment_color = "243"
 let term_error_color = "160"
 let term_function_color = "77"
 let term_type_color = "45"
-let gui_constant_color = "#9820CB"
+let term_string_color = "227"
+
+let gui_constant_color = "#C55BD0"
+let gui_construct_color = "#FF3466"
+let gui_comment_color = "#535353"
+let gui_error_color = "#F70000"
+let gui_function_color = "#00FF9E"
+let gui_type_color = "#38ECFF"
+let gui_string_color = "#DBE917"
 
 ""	general syntax highlighting {{{
-hi	Boolean		cterm=bold		ctermfg=99		gui=bold	guifg=#DA3D7A
-hi	Character	cterm=NONE		ctermfg=99		gui=NONE	guifg=#09D62C
-hi	Comment		cterm=NONE		ctermfg=243		gui=NONE	guifg=#8E8E8E
-hi	Conditional	cterm=bold		ctermfg=161		gui=bold	guifg=#DD50F8
-hi	Constant	cterm=bold		ctermfg=99		gui=bold	guifg=#DA3D7A
-hi	Debug		cterm=bold		ctermfg=161		gui=bold	guifg=#DA3D7A
-hi	Define		cterm=bold		ctermfg=161		gui=bold	guifg=#BD2419
-hi	Delimiter	cterm=NONE		ctermfg=255		gui=bold	guifg=#F3B83F
-hi	Error		cterm=bold		ctermbg=160		ctermfg=255	gui=bold	guifg=#FFFFFF	guibg=#DC2E21
-hi	Exception	cterm=bold		ctermfg=161		gui=bold	guifg=#DD50F8
-hi	Float		cterm=NONE		ctermfg=99		gui=bold	guifg=#DA3D7A
-hi	Function	cterm=bold		ctermfg=77		gui=NONE	guifg=#BEF9DE
-hi	Identifier	cterm=NONE		ctermfg=255		gui=bold	guifg=#F3B83F
-hi	Ignore		cterm=bold		ctermfg=160		gui=bold	guifg=#DC2E21
-hi	Include		cterm=bold		ctermfg=227		gui=bold	guifg=#DD50F8
-hi	Keyword		cterm=bold		ctermfg=161		gui=bold	guifg=#BD85F7
-hi	Label		cterm=bold		ctermfg=161		gui=bold	guifg=#DD50F8
-hi	Macro		cterm=bold		ctermfg=45		gui=bold	guifg=#7EA1F0
-hi	Number		cterm=NONE		ctermfg=99		gui=bold	guifg=#DA3D7A
-hi	Operator	cterm=bold		ctermfg=161		gui=bold	guifg=#BE4EF7
-hi	PreCondit	cterm=bold		ctermfg=161		gui=bold	guifg=#DD50F8
-hi	PreProc		cterm=bold		ctermfg=161		gui=bold	guifg=#DA3D7A
-hi	Repeat		cterm=bold		ctermfg=161		gui=bold	guifg=#DD50F8
-hi	Special		cterm=bold		ctermfg=99		gui=bold	guifg=#F3B83F
-hi	SpecialChar	cterm=bold		ctermfg=99		gui=bold	guifg=#F3B83F
-hi	SpecialComment	cterm=bold	ctermfg=33		gui=bold	guifg=#159FF8
-hi	Statement	cterm=bold		ctermfg=161		gui=bold	guifg=#DD50F8
-hi	StorageClass	cterm=bold	ctermfg=161		gui=bold	guifg=#159FF8
-hi	String		cterm=NONE		ctermfg=227		gui=NONE	guifg=#09D62C
-hi	Structure	cterm=bold		ctermfg=161		gui=bold	guifg=#159FF8
-hi	Tag			cterm=bold		ctermfg=161		gui=bold	guifg=#F3B83F
-hi	Title		cterm=bold		ctermfg=255		gui=NONE		guifg=#F9BB34
-hi	Todo		cterm=bold		ctermfg=161		ctermbg=214	gui=bold	guifg=#DA3D7A	guibg=#F3B83F
-hi	Type		cterm=bold		ctermfg=45		gui=bold	guifg=#159FF8
-hi	Typedef		cterm=bold		ctermfg=161		gui=bold	guifg=#159FF8
-hi	Underlined	cterm=underline,bold	ctermfg=214			gui=underline,bold	guifg=#F3B83F
+execute "hi Boolean		cterm=bold ctermfg=".term_constant_color." gui=bold guifg=".gui_constant_color
+execute "hi Character	cterm=none ctermfg=".term_constant_color." gui=none guifg=".gui_constant_color
+execute "hi Comment		cterm=none ctermfg=".term_comment_color." gui=none guifg=".gui_comment_color
+execute "hi Conditional	cterm=bold ctermfg=".term_construct_color." gui=bold guifg=".gui_construct_color
+execute "hi Constant	cterm=bold ctermfg=".term_constant_color." gui=bold guifg=".gui_constant_color
+execute "hi Debug		cterm=bold ctermfg=".term_construct_color." gui=bold guifg=".gui_construct_color
+execute "hi Define		cterm=bold ctermfg=".term_construct_color." gui=bold guifg=".gui_construct_color
+execute "hi Delimiter	cterm=none ctermfg=".term_text_color." gui=bold	guifg=".gui_text_color
+execute "hi Error		cterm=bold ctermfg=".term_text_color." ctermbg=".term_error_color." gui=bold guifg=".gui_text_color." guibg=".gui_error_color
+execute "hi Exception	cterm=bold ctermfg=".term_construct_color." gui=bold guifg=".gui_construct_color
+execute "hi Float		cterm=none ctermfg=".term_constant_color." gui=bold guifg=".gui_constant_color
+execute "hi Function	cterm=bold ctermfg=".term_function_color." gui=bold guifg=".gui_function_color
+execute "hi Identifier	cterm=none ctermfg=".term_text_color." gui=bold guifg=".gui_text_color
+execute "hi Ignore		cterm=bold ctermfg=".term_error_color." gui=bold guifg=".gui_error_color
+execute "hi Include		cterm=bold ctermfg=".term_string_color." gui=bold guifg=".gui_string_color
+execute "hi Keyword		cterm=bold ctermfg=".term_construct_color." gui=bold guifg=".gui_construct_color
+execute "hi Label		cterm=bold ctermfg=".term_construct_color."	gui=bold guifg=".gui_construct_color
+execute "hi Macro		cterm=bold ctermfg=".term_type_color." gui=bold guifg=".gui_type_color
+execute "hi Number		cterm=none ctermfg=".term_constant_color." gui=bold guifg=".gui_constant_color
+execute "hi Operator	cterm=bold ctermfg=".term_construct_color." gui=bold guifg=".gui_construct_color
+execute "hi PreCondit	cterm=bold ctermfg=".term_construct_color." gui=bold guifg=".gui_construct_color
+execute "hi PreProc		cterm=bold ctermfg=".term_construct_color." gui=bold guifg=".gui_construct_color
+execute "hi Repeat		cterm=bold ctermfg=".term_construct_color." gui=bold guifg=".gui_construct_color
+execute "hi Special		    cterm=bold ctermfg=".term_constant_color." gui=bold guifg=".gui_constant_color
+execute "hi SpecialChar	    cterm=bold ctermfg=".term_constant_color." gui=bold guifg=".gui_constant_color
+execute "hi SpecialComment  cterm=bold ctermfg=".term_construct_color." gui=bold guifg=".gui_construct_color
+execute "hi Statement	    cterm=bold ctermfg=".term_construct_color." gui=bold guifg=".gui_construct_color
+execute "hi StorageClass	cterm=bold ctermfg=".term_construct_color." gui=bold guifg=".gui_construct_color
+execute "hi String		cterm=none ctermfg=".term_string_color." gui=none guifg=".gui_string_color
+execute "hi Structure	cterm=bold ctermfg=".term_construct_color." gui=bold guifg=".gui_construct_color
+execute "hi Tag			cterm=bold ctermfg=".term_construct_color." gui=bold guifg=".gui_construct_color
+execute "hi Title		cterm=bold ctermfg=".term_text_color." gui=bold guifg=".gui_text_color
+execute "hi Todo		cterm=bold ctermfg=".term_construct_color." ctermbg=".term_warning_text_color." gui=bold guifg=".gui_construct_color." guibg=".gui_warning_text_color
+execute "hi Type		cterm=bold ctermfg=".term_type_color." gui=bold guifg=".gui_type_color
+execute "hi Typedef		cterm=bold ctermfg=".term_construct_color." gui=bold guifg=".gui_construct_color
+execute "hi Underlined	cterm=underline,bold ctermfg=".term_warning_text_color." gui=underline,bold guifg=".gui_warning_text_color
 " }}}
 
 "" enable C syntax highlight {{{

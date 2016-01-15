@@ -28,6 +28,15 @@ let term_light_text_color = "246"
 let term_popup_bg_color = "236"
 let term_popup_sel_color = "239"
 let term_popup_thumb_color = "242"
+let term_tab_bg_fill = "232"
+let term_tab_bg = "235"
+let term_tab_select = "237"
+let term_select_bg = "130"
+let term_directory = "33"
+let term_separator = "77"
+let term_match_paren = "227"
+let term_non_text = "99"
+let term_special = "161"
 " gui color
 let gui_text_color = "#F0F0F0"
 let gui_bg_color = "#0A0A0A"
@@ -41,6 +50,15 @@ let gui_light_text_color = "#666666"
 let gui_popup_bg_color = "#202020"
 let gui_popup_sel_color = "#363636"
 let gui_popup_thumb_color = "#565656"
+let gui_tab_bg_fill = "#090909"
+let gui_tab_bg = "#0C0C0C"
+let gui_tab_select = "#0E0E0E"
+let gui_select_bg = "#EB981D"
+let gui_directory = "#4F4DE9"
+let gui_separator = "#58D539"
+let gui_match_paren = "#F7AA03"
+let gui_non_text = "#8100EB"
+let gui_special = "#FF3535"
 
 " normal & cursor {{{
 execute "hi Normal        cterm=none ctermfg=".term_text_color." ctermbg=".term_bg_color." gui=none guifg=".gui_text_color." guibg=".gui_bg_color
@@ -80,28 +98,36 @@ execute "hi	PmenuSbar	cterm=none  ctermfg=".term_hl_color." ctermbg=".term_hl_co
 execute "hi	PmenuThumb	cterm=none  ctermfg=".term_popup_thumb_color." ctermbg=".term_popup_thumb_color." gui=none guifg=".gui_popup_thumb_color." guibg=".gui_popup_thumb_color
 " }}}
 " Tabs {{{
-execute "hi	TabLine		cterm=bold	          ctermfg=250	ctermbg=236	    gui=bold            guifg=#7E50F1	guibg=#000000"
-execute "hi	TabLineFill	cterm=bold	          ctermfg=232	ctermbg=232	    gui=bold		    guifg=#000000	guibg=#000000"
-execute "hi	TabLineSel	cterm=underline,bold  ctermfg=252	ctermbg=238	    gui=underline,bold	guifg=#DC3476	guibg=#121212"
+execute "hi	TabLine		cterm=bold ctermfg=".term_text_color." ctermbg=".term_tab_bg." gui=bold guifg=".gui_text_color." guibg=".gui_tab_bg
+execute "hi	TabLineFill	cterm=none ctermfg=".term_tab_bg_fill." ctermbg=".term_tab_bg_fill." gui=none guifg=".gui_tab_bg_fill." guibg=".gui_tab_bg_fill
+execute "hi	TabLineSel	cterm=underline,bold  ctermfg=".term_text_color." ctermbg=".term_tab_select." gui=underline,bold guifg=".gui_text_color." guibg=".gui_tab_select
 " }}}
 " visual {{{
-execute "hi	Visual		cterm=bold ctermfg=255 ctermbg=130 gui=reverse guibg=NONE"
-execute "hi	VisualNOS	cterm=bold gui=bold"
+execute "hi	Visual		cterm=bold ctermfg=".term_text_color." ctermbg=".term_select_bg." gui=bold guifg=".gui_text_color." guibg=".gui_select_bg
+execute "hi	VisualNOS	cterm=bold ctermfg=".term_text_color." ctermbg=".term_select_bg." gui=bold guifg=".gui_text_color." guibg=".gui_select_bg
 " }}}
 " other {{{
-hi	SignColumn	cterm=bold  ctermfg=255   ctermbg=NONE    gui=bold  guifg=#76A1F8   guibg=#000000
-hi	Directory	cterm=bold	ctermfg=33	  ctermbg=NONE    gui=bold	guifg=#0CB627   guibg=#000000
-hi	VertSplit	cterm=bold	ctermfg=16	  ctermbg=77	  gui=bold  guifg=#000000	guibg=#7159FF
-hi	MatchParen	cterm=bold	ctermfg=227	  ctermbg=236	  gui=bold	guifg=#000000	guibg=#19a1f6
-hi	NonText		cterm=bold	ctermfg=99	  ctermbg=NONE	  gui=bold	guifg=#BE86F5	guibg=#000000
-hi	SpecialKey	cterm=NONE  ctermfg=161	  ctermbg=NONE    gui=NONE  guifg=#7DA1F2   guibg=#000000
+execute "hi	SignColumn	cterm=bold ctermfg=".term_text_color." ctermbg=none gui=bold guifg=".gui_text_color." guibg=none"
+execute "hi	Directory	cterm=bold ctermfg=".term_directory." ctermbg=none gui=bold	guifg=".gui_directory." guibg=none"
+execute "hi	VertSplit	cterm=bold ctermfg=16 ctermbg=".term_separator." gui=bold guifg=#000000 guibg=".gui_separator
+execute "hi	MatchParen	cterm=bold ctermfg=".term_match_paren." ctermbg=".term_strong_hl_color." gui=bold guifg=".gui_match_paren." guibg=".gui_strong_hl_color
+execute "hi	NonText		cterm=bold ctermfg=".term_non_text." ctermbg=none gui=bold guifg=".gui_non_text." guibg=none"
+execute "hi	SpecialKey	cterm=none ctermfg=".term_special." ctermbg=none gui=none guifg=".gui_special." guibg=none"
+execute "hi	WildMenu	cterm=bold ctermfg=none ctermbg=".term_dark_bg_color." gui=bold	guifg=none guibg=".gui_dark_bg_color
 " }}}
 " gui highlight {{{
-"hi	WildMenu	ctermfg=16		ctermbg=214		guifg=#000000	guibg=#FF9900
-"hi	Menu		gui=bold
-"hi	scrollbars	gui=bold
-"hi	Tooltip		gui=bold
+execute "hi	Menu		gui=bold guifg=".gui_text_color." guibg=".gui_bg_color
+execute "hi	scrollbars	gui=bold guifg=".gui_strong_hl_color." guibg=".gui_dark_bg_color
+execute "hi	Tooltip		gui=bold guifg=".gui_text_color." guibg=".gui_hl_color
 " }}}
+
+let term_constant_color = "99"
+let term_construct_color = "161"
+let term_comment_color = "243"
+let term_error_color = "160"
+let term_function_color = "77"
+let term_type_color = "45"
+let gui_constant_color = "#9820CB"
 
 ""	general syntax highlighting {{{
 hi	Boolean		cterm=bold		ctermfg=99		gui=bold	guifg=#DA3D7A

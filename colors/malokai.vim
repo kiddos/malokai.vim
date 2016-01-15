@@ -161,3 +161,9 @@ let java_minlines = 1024
 let python_highlight_all = 1
 " }}}
 
+" support for code_color plugin {{{
+exe "hi Variable      cterm=none ctermfg=".term_text_color." ctermbg=none gui=none guifg=".gui_text_color." guibg=none"
+exe "hi Member        cterm=none ctermfg=77  ctermbg=none"
+exe "hi Namespace     cterm=bold ctermfg=208 ctermbg=none"
+exe "hi EnumConstant  cterm=bold ctermfg=99 ctermbg=none"
+" }}}

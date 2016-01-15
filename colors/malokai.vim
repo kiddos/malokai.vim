@@ -64,32 +64,32 @@ let gui_special = "#FF3535"
 execute "hi Normal        cterm=none ctermfg=".term_text_color." ctermbg=".term_bg_color." gui=none guifg=".gui_text_color." guibg=".gui_bg_color
 execute "hi Cursor        cterm=reverse gui=none guifg=".gui_bg_color." guibg=".gui_text_color
 execute "hi CursorIM      cterm=reverse gui=none guifg=".gui_bg_color." guibg=".gui_text_color
-execute "hi CursorColumn  cterm=none ctermfg=none ctermbg=".term_hl_color." gui=none guifg=none guibg=".gui_hl_color
-execute "hi CursorLine    cterm=none ctermfg=none ctermbg=".term_hl_color." gui=none guifg=none guibg=".gui_hl_color
+execute "hi CursorColumn  cterm=none ctermfg=none ctermbg=".term_hl_color." gui=none guibg=".gui_hl_color
+execute "hi CursorLine    cterm=none ctermfg=none ctermbg=".term_hl_color." gui=none guibg=".gui_hl_color
 " }}}
 " diff {{{
-execute "hi DiffAdd     cterm=bold ctermbg=none ctermfg=none gui=bold guibg=none guifg=none"
-execute "hi DiffChange  cterm=bold ctermbg=none ctermfg=none gui=bold guibg=none guifg=none"
-execute "hi	DiffDelete	cterm=bold ctermbg=none ctermfg=".term_diff_delete." gui=bold guibg=none guifg=".gui_diff_delete
-execute "hi	DiffText	cterm=bold ctermbg=none ctermfg=".term_diff_delete." gui=bold guibg=none guifg=".gui_diff_delete
+execute "hi DiffAdd     cterm=bold ctermbg=none ctermfg=none gui=bold"
+execute "hi DiffChange  cterm=bold ctermbg=none ctermfg=none gui=bold"
+execute "hi	DiffDelete	cterm=bold ctermbg=none ctermfg=".term_diff_delete." gui=bold guifg=".gui_diff_delete
+execute "hi	DiffText	cterm=bold ctermbg=none ctermfg=".term_diff_delete." gui=bold guifg=".gui_diff_delete
 " }}}
 " fold {{{
-execute "hi Folded        cterm=none ctermbg=none  ctermfg=".term_fold_color." gui=none guibg=none guifg=".gui_fold_color
-execute "hi FoldedColumn  cterm=none ctermbg=none  ctermfg=".term_fold_color." gui=none guibg=none guifg=".gui_fold_color
+execute "hi Folded        cterm=none ctermbg=none  ctermfg=".term_fold_color." gui=none guifg=".gui_fold_color
+execute "hi FoldedColumn  cterm=none ctermbg=none  ctermfg=".term_fold_color." gui=none guifg=".gui_fold_color
 " }}}
 " search {{{
-execute "hi	Search		cterm=none  ctermfg=none ctermbg=".term_dark_bg_color." gui=none guifg=none guibg=".gui_dark_bg_color
-execute "hi	IncSearch	cterm=bold	ctermfg=none ctermbg=".term_dark_bg_color." gui=bold guifg=none guibg=".gui_dark_bg_color
+execute "hi	Search		cterm=none  ctermfg=none ctermbg=".term_dark_bg_color." gui=none guibg=".gui_dark_bg_color
+execute "hi	IncSearch	cterm=bold	ctermfg=none ctermbg=".term_dark_bg_color." gui=bold guibg=".gui_dark_bg_color
 " }}}
 " line number {{{
 execute "hi	LineNr		  cterm=none  ctermfg=".term_light_text_color." ctermbg=".term_hl_color." gui=none	guifg=".gui_light_text_color." guibg=".gui_hl_color
 execute "hi	CursorLineNr  cterm=bold  ctermfg=".term_text_color." ctermbg=".term_strong_hl_color." gui=bold	guifg=".gui_text_color." guibg=".gui_strong_hl_color
 " }}}
 " message {{{
-execute "hi	ErrorMsg	cterm=bold	ctermfg=".term_warning_text_color." ctermbg=none  gui=bold  guifg=".gui_warning_text_color." guibg=none"
-execute "hi	MoreMsg		cterm=bold	ctermfg=".term_text_color."	ctermbg=none gui=bold guifg=".gui_text_color." guibg=none"
-execute "hi	WarningMsg	cterm=bold	ctermfg=".term_text_color." ctermbg=none gui=bold guifg=".gui_text_color." guibg=none"
-execute "hi	Question	cterm=bold  ctermfg=".term_text_color." ctermbg=none gui=bold guifg=".gui_text_color." guibg=none"
+execute "hi	ErrorMsg	cterm=bold	ctermfg=".term_warning_text_color." ctermbg=none  gui=bold  guifg=".gui_warning_text_color
+execute "hi	MoreMsg		cterm=bold	ctermfg=".term_text_color."	ctermbg=none gui=bold guifg=".gui_text_color
+execute "hi	WarningMsg	cterm=bold	ctermfg=".term_text_color." ctermbg=none gui=bold guifg=".gui_text_color
+execute "hi	Question	cterm=bold  ctermfg=".term_text_color." ctermbg=none gui=bold guifg=".gui_text_color
 " }}}
 " popup menu {{{
 execute "hi	Pmenu		cterm=bold	ctermfg=".term_text_color." ctermbg=".term_popup_bg_color." gui=bold guifg="gui_text_color." guibg=".gui_popup_bg_color
@@ -107,13 +107,13 @@ execute "hi	Visual		cterm=bold ctermfg=".term_text_color." ctermbg=".term_select
 execute "hi	VisualNOS	cterm=bold ctermfg=".term_text_color." ctermbg=".term_select_bg." gui=bold guifg=".gui_text_color." guibg=".gui_select_bg
 " }}}
 " other {{{
-execute "hi	SignColumn	cterm=bold ctermfg=".term_text_color." ctermbg=none gui=bold guifg=".gui_text_color." guibg=none"
-execute "hi	Directory	cterm=bold ctermfg=".term_directory." ctermbg=none gui=bold	guifg=".gui_directory." guibg=none"
+execute "hi	SignColumn	cterm=bold ctermfg=".term_text_color." ctermbg=none gui=bold guifg=".gui_text_color
+execute "hi	Directory	cterm=bold ctermfg=".term_directory." ctermbg=none gui=bold	guifg=".gui_directory
 execute "hi	VertSplit	cterm=bold ctermfg=16 ctermbg=".term_separator." gui=bold guifg=#000000 guibg=".gui_separator
 execute "hi	MatchParen	cterm=bold ctermfg=".term_match_paren." ctermbg=".term_strong_hl_color." gui=bold guifg=".gui_match_paren." guibg=".gui_strong_hl_color
-execute "hi	NonText		cterm=bold ctermfg=".term_non_text." ctermbg=none gui=bold guifg=".gui_non_text." guibg=none"
-execute "hi	SpecialKey	cterm=none ctermfg=".term_special." ctermbg=none gui=none guifg=".gui_special." guibg=none"
-execute "hi	WildMenu	cterm=bold ctermfg=none ctermbg=".term_dark_bg_color." gui=bold	guifg=none guibg=".gui_dark_bg_color
+execute "hi	NonText		cterm=bold ctermfg=".term_non_text." ctermbg=none gui=bold guifg=".gui_non_text
+execute "hi	SpecialKey	cterm=none ctermfg=".term_special." ctermbg=none gui=none guifg=".gui_special
+execute "hi	WildMenu	cterm=bold ctermfg=none ctermbg=".term_dark_bg_color." gui=bold guibg=".gui_dark_bg_color
 " }}}
 " gui highlight {{{
 execute "hi	Menu		gui=bold guifg=".gui_text_color." guibg=".gui_bg_color
@@ -188,7 +188,7 @@ let python_highlight_all = 1
 " }}}
 
 " support for code_color plugin {{{
-exe "hi Variable      cterm=none ctermfg=".term_text_color." ctermbg=none gui=none guifg=".gui_text_color." guibg=none"
+exe "hi Variable      cterm=none ctermfg=".term_text_color." ctermbg=none gui=none guifg=".gui_text_color
 exe "hi Member        cterm=none ctermfg=77  ctermbg=none"
 exe "hi Namespace     cterm=bold ctermfg=208 ctermbg=none"
 exe "hi EnumConstant  cterm=bold ctermfg=99 ctermbg=none"

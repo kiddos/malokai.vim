@@ -135,7 +135,7 @@ let gui_comment_color = "#535353"
 let gui_error_color = "#F70000"
 let gui_function_color = "#00FF9E"
 let gui_type_color = "#38ECFF"
-let gui_string_color = "#DBE917"
+let gui_string_color = "#FFF641"
 
 ""	general syntax highlighting {{{
 execute "hi Boolean		cterm=bold ctermfg=".term_constant_color." gui=bold guifg=".gui_constant_color
@@ -197,7 +197,7 @@ let python_highlight_all = 1
 
 " support for code_color plugin {{{
 exe "hi Variable      cterm=none ctermfg=".term_text_color." ctermbg=none gui=none guifg=".gui_text_color
-exe "hi Member        cterm=none ctermfg=77  ctermbg=none"
-exe "hi Namespace     cterm=bold ctermfg=208 ctermbg=none"
-exe "hi EnumConstant  cterm=bold ctermfg=99 ctermbg=none"
+exe "hi Member        cterm=none ctermfg=".term_function_color." ctermbg=none gui=none guifg=".gui_function_color
+exe "hi Namespace     cterm=bold ctermfg=208 ctermbg=none gui=none guifg=#F5B624"
+exe "hi EnumConstant  cterm=bold ctermfg=".term_constant_color." ctermbg=none gui=bold guifg=".gui_constant_color
 " }}}

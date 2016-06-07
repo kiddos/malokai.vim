@@ -125,7 +125,7 @@ let term_constant_color = "99"
 let term_construct_color = "161"
 let term_comment_color = "243"
 let term_error_color = "160"
-let term_function_color = "77"
+let term_function_color = "113"
 let term_type_color = "45"
 let term_string_color = "227"
 

@@ -233,7 +233,7 @@ syn keyword	cKeyword	include
 syn keyword cDefine		define
 syn keyword cPreproc	undef if else elif endif
 syn keyword cPreproc	ifdef ifndef
-syn match	cInclude	"\s*\t*#include\s*["<][0-9a-zA-Z._/]*[">]" contains=cSymbol,cKeyword
+syn match	cInclude	"\s*\t*#include\s*["<][0-9a-zA-Z._/+]*[">]" contains=cSymbol,cKeyword
 syn match	cBraces		"[{}]"
 
 hi def link cPOSIXFunction cAnsiFunction

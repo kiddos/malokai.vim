@@ -1,7 +1,7 @@
 ""
 "" Vim color scheme
 "" Maintainer: Joseph Yu
-"" Last Change: 2015 10 19
+"" Last Change: 2020 07 18
 ""
 
 hi clear
@@ -16,8 +16,9 @@ if exists("syntax_on")
 endif
 
 " terminal colors
-let term_text_color = "253"
-let term_bg_color = "233"
+" using screen 256 colors
+let term_text_color = "255"
+let term_bg_color = "234"
 let term_hl_color = "234"
 let term_strong_hl_color = "235"
 let term_diff_delete = "27"
@@ -121,12 +122,12 @@ execute "hi	scrollbars	gui=bold guifg=".gui_strong_hl_color." guibg=".gui_dark_b
 execute "hi	Tooltip		gui=bold guifg=".gui_text_color." guibg=".gui_hl_color
 " }}}
 
-let term_constant_color = "99"
+let term_constant_color = "135"
 let term_construct_color = "161"
 let term_comment_color = "243"
 let term_error_color = "160"
-let term_function_color = "113"
-let term_type_color = "45"
+let term_function_color = "112"
+let term_type_color = "81"
 let term_string_color = "227"
 
 let gui_constant_color = "#C55BD0"
@@ -172,7 +173,7 @@ execute "hi Tag			cterm=bold ctermfg=".term_construct_color." gui=bold guifg=".g
 execute "hi Title		cterm=bold ctermfg=".term_text_color." gui=bold guifg=".gui_text_color
 execute "hi Todo		cterm=bold ctermfg=".term_construct_color." ctermbg=".term_warning_text_color." gui=bold guifg=".gui_construct_color." guibg=".gui_warning_text_color
 execute "hi Type		cterm=bold ctermfg=".term_type_color." gui=bold guifg=".gui_type_color
-execute "hi Typedef		cterm=bold ctermfg=".term_construct_color." gui=bold guifg=".gui_construct_color
+execute "hi Typedef		cterm=none ctermfg=".term_text_color." gui=bold guifg=".gui_construct_color
 execute "hi Underlined	cterm=underline,bold ctermfg=".term_warning_text_color." gui=underline,bold guifg=".gui_warning_text_color
 execute "hi SpellBad    cterm=bold ctermfg=".term_construct_color." ctermbg=".term_warning_text_color." gui=bold guifg=".gui_construct_color." guibg=".gui_warning_text_color
 " }}}

@@ -8,8 +8,8 @@ hi clear
 
 let color_name = "malokai"
 
-set t_Co=256
-set background=dark
+" set t_Co=256
+" set background=dark
 
 if exists("syntax_on")
   syntax reset
@@ -39,58 +39,58 @@ let term_match_paren = "227"
 let term_non_text = "99"
 let term_special = "161"
 " gui color
-let gui_text_color = "#F0F0F0"
-let gui_bg_color = "#0A0A0A"
-let gui_hl_color = "#121212"
-let gui_strong_hl_color = "#161616"
-let gui_diff_delete = "#5882FA"
-let gui_fold_color = "#BDBDBD"
-let gui_dark_bg_color = "#060606"
-let gui_warning_text_color = "#ED9F0D"
-let gui_light_text_color = "#666666"
-let gui_popup_bg_color = "#202020"
-let gui_popup_sel_color = "#363636"
-let gui_popup_thumb_color = "#565656"
-let gui_tab_bg_fill = "#090909"
-let gui_tab_bg = "#0C0C0C"
-let gui_tab_select = "#0E0E0E"
-let gui_select_bg = "#EB981D"
-let gui_directory = "#4F4DE9"
-let gui_separator = "#58D539"
-let gui_match_paren = "#F7AA03"
-let gui_non_text = "#8100EB"
-let gui_special = "#FF3535"
+let gui_text_color = "#DDDDDD"
+let gui_bg_color = "#1C1C1C"
+let gui_hl_color = "#1C1C1C"
+let gui_strong_hl_color = "#262626"
+let gui_diff_delete = "#B05FFF"
+let gui_fold_color = "#BCBCBC"
+let gui_dark_bg_color = "#080808"
+let gui_warning_text_color = "#FFAF00"
+let gui_light_text_color = "#949494"
+let gui_popup_bg_color = "#303030"
+let gui_popup_sel_color = "#4E4E4E"
+let gui_popup_thumb_color = "#6C6C6C"
+let gui_tab_bg_fill = "#080808"
+let gui_tab_bg = "#262626"
+let gui_tab_select = "#3A3A3A"
+let gui_select_bg = "#Af5F00"
+let gui_directory = "#299DE0"
+let gui_separator = "#5FD75F"
+let gui_match_paren = "#FFFF5F"
+let gui_non_text = "#875FFF"
+let gui_special = "#D70051"
 
 " normal & cursor {{{
 execute "hi Normal        cterm=none ctermfg=".term_text_color." ctermbg=".term_bg_color." gui=none guifg=".gui_text_color." guibg=".gui_bg_color
-execute "hi Cursor        cterm=reverse gui=none guifg=".gui_bg_color." guibg=".gui_text_color
-execute "hi CursorIM      cterm=reverse gui=none guifg=".gui_bg_color." guibg=".gui_text_color
-execute "hi CursorColumn  cterm=none ctermfg=none ctermbg=".term_hl_color." gui=none guibg=".gui_hl_color
-execute "hi CursorLine    cterm=none ctermfg=none ctermbg=".term_hl_color." gui=none guibg=".gui_hl_color
+execute "hi Cursor        cterm=reverse gui=reverse"
+execute "hi CursorIM      cterm=reverse gui=reverse"
+execute "hi CursorColumn  cterm=none ctermfg=none ctermbg=".term_hl_color." gui=none guifg=none guibg=".gui_hl_color
+execute "hi CursorLine    cterm=none ctermfg=none ctermbg=".term_hl_color." gui=none guifg=none guibg=".gui_hl_color
 " }}}
 " diff {{{
-execute "hi DiffAdd     cterm=bold ctermbg=none ctermfg=none gui=bold"
-execute "hi DiffChange  cterm=bold ctermbg=none ctermfg=none gui=bold"
-execute "hi	DiffDelete	cterm=bold ctermbg=none ctermfg=".term_diff_delete." gui=bold guifg=".gui_diff_delete
-execute "hi	DiffText	cterm=bold ctermbg=none ctermfg=".term_diff_delete." gui=bold guifg=".gui_diff_delete
+execute "hi DiffAdd     cterm=bold ctermbg=none ctermfg=none gui=bold guibg=none guifg=none"
+execute "hi DiffChange  cterm=bold ctermbg=none ctermfg=none gui=bold guibg=none guifg=none"
+execute "hi	DiffDelete	cterm=bold ctermbg=none ctermfg=".term_diff_delete." gui=bold guibg=none guifg=".gui_diff_delete
+execute "hi	DiffText	cterm=bold ctermbg=none ctermfg=".term_diff_delete." gui=bold guibg=none guifg=".gui_diff_delete
 " }}}
 " fold {{{
-execute "hi Folded        cterm=none ctermbg=none  ctermfg=".term_fold_color." gui=none guifg=".gui_fold_color
-execute "hi FoldedColumn  cterm=none ctermbg=none  ctermfg=".term_fold_color." gui=none guifg=".gui_fold_color
+execute "hi Folded        cterm=none ctermbg=none  ctermfg=".term_fold_color." gui=none guifg=".gui_fold_color." guibg=none"
+execute "hi FoldedColumn  cterm=none ctermbg=none  ctermfg=".term_fold_color." gui=none guifg=".gui_fold_color." guibg=none"
 " }}}
 " search {{{
-execute "hi	Search		cterm=none  ctermfg=none ctermbg=".term_dark_bg_color." gui=none guibg=".gui_dark_bg_color
-execute "hi	IncSearch	cterm=bold	ctermfg=none ctermbg=".term_dark_bg_color." gui=bold guibg=".gui_dark_bg_color
+execute "hi	Search		cterm=none  ctermfg=none ctermbg=".term_dark_bg_color." gui=none guibg=".gui_dark_bg_color." guifg=none"
+execute "hi	IncSearch	cterm=bold	ctermfg=none ctermbg=".term_dark_bg_color." gui=bold guibg=".gui_dark_bg_color." guifg=none"
 " }}}
 " line number {{{
-execute "hi	LineNr		  cterm=none  ctermfg=".term_light_text_color." ctermbg=".term_hl_color." gui=none	guifg=".gui_light_text_color." guibg=".gui_hl_color
+execute "hi	LineNr cterm=none  ctermfg=".term_light_text_color." ctermbg=".term_hl_color." gui=none	guifg=".gui_light_text_color." guibg=".gui_hl_color
 execute "hi	CursorLineNr  cterm=bold  ctermfg=".term_text_color." ctermbg=".term_strong_hl_color." gui=bold	guifg=".gui_text_color." guibg=".gui_strong_hl_color
 " }}}
 " message {{{
-execute "hi	ErrorMsg	cterm=bold	ctermfg=".term_warning_text_color." ctermbg=none  gui=bold  guifg=".gui_warning_text_color
-execute "hi	MoreMsg		cterm=bold	ctermfg=".term_text_color."	ctermbg=none gui=bold guifg=".gui_text_color
-execute "hi	WarningMsg	cterm=bold	ctermfg=".term_text_color." ctermbg=none gui=bold guifg=".gui_text_color
-execute "hi	Question	cterm=bold  ctermfg=".term_text_color." ctermbg=none gui=bold guifg=".gui_text_color
+execute "hi	ErrorMsg	cterm=bold	ctermfg=".term_warning_text_color." ctermbg=none  gui=bold guibg=none guifg=".gui_warning_text_color
+execute "hi	MoreMsg		cterm=bold	ctermfg=".term_text_color."	ctermbg=none gui=bold guibg=none guifg=".gui_text_color
+execute "hi	WarningMsg	cterm=bold	ctermfg=".term_text_color." ctermbg=none gui=bold guibg=none guifg=".gui_text_color
+execute "hi	Question	cterm=bold  ctermfg=".term_text_color." ctermbg=none gui=bold guibg=none guifg=".gui_text_color
 " }}}
 " popup menu {{{
 execute "hi	Pmenu		cterm=bold	ctermfg=".term_text_color." ctermbg=".term_popup_bg_color." gui=bold guifg="gui_text_color." guibg=".gui_popup_bg_color
@@ -108,13 +108,13 @@ execute "hi	Visual		cterm=bold ctermfg=".term_text_color." ctermbg=".term_select
 execute "hi	VisualNOS	cterm=bold ctermfg=".term_text_color." ctermbg=".term_select_bg." gui=bold guifg=".gui_text_color." guibg=".gui_select_bg
 " }}}
 " other {{{
-execute "hi	SignColumn	cterm=bold ctermfg=".term_text_color." ctermbg=none gui=bold guifg=".gui_text_color
-execute "hi	Directory	cterm=bold ctermfg=".term_directory." ctermbg=none gui=bold	guifg=".gui_directory
+execute "hi	SignColumn	cterm=bold ctermfg=".term_text_color." ctermbg=none gui=bold guibg=none guifg=".gui_text_color
+execute "hi	Directory	cterm=bold ctermfg=".term_directory." ctermbg=none gui=bold guibg=none guifg=".gui_directory
 execute "hi	VertSplit	cterm=bold ctermfg=16 ctermbg=".term_separator." gui=bold guifg=#000000 guibg=".gui_separator
 execute "hi	MatchParen	cterm=bold ctermfg=".term_match_paren." ctermbg=".term_strong_hl_color." gui=bold guifg=".gui_match_paren." guibg=".gui_strong_hl_color
-execute "hi	NonText		cterm=bold ctermfg=".term_non_text." ctermbg=none gui=bold guifg=".gui_non_text
-execute "hi	SpecialKey	cterm=none ctermfg=".term_special." ctermbg=none gui=none guifg=".gui_special
-execute "hi	WildMenu	cterm=bold ctermfg=none ctermbg=".term_dark_bg_color." gui=bold guibg=".gui_dark_bg_color
+execute "hi	NonText		cterm=bold ctermfg=".term_non_text." ctermbg=none gui=bold guibg=none guifg=".gui_non_text
+execute "hi	SpecialKey	cterm=none ctermfg=".term_special." ctermbg=none gui=none guibg=none guifg=".gui_special
+execute "hi	WildMenu	cterm=bold ctermfg=none ctermbg=".term_dark_bg_color." gui=bold guifg=none guibg=".gui_dark_bg_color
 " }}}
 " gui highlight {{{
 execute "hi	Menu		gui=bold guifg=".gui_text_color." guibg=".gui_bg_color
@@ -130,13 +130,13 @@ let term_function_color = "112"
 let term_type_color = "81"
 let term_string_color = "227"
 
-let gui_constant_color = "#C55BD0"
-let gui_construct_color = "#FF3466"
+let gui_constant_color = "#B563DE"
+let gui_construct_color = "#D70051"
 let gui_comment_color = "#535353"
-let gui_error_color = "#F70000"
-let gui_function_color = "#00FF9E"
-let gui_type_color = "#38ECFF"
-let gui_string_color = "#FFF641"
+let gui_error_color = "#CF1818"
+let gui_function_color = "#62DA62"
+let gui_type_color = "#02E8E5"
+let gui_string_color = "#F0F05D"
 
 ""	general syntax highlighting {{{
 execute "hi Boolean		cterm=bold ctermfg=".term_constant_color." gui=bold guifg=".gui_constant_color

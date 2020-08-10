@@ -173,7 +173,7 @@ execute "hi Tag			cterm=bold ctermfg=".term_construct_color." gui=bold guifg=".g
 execute "hi Title		cterm=bold ctermfg=".term_text_color." gui=bold guifg=".gui_text_color
 execute "hi Todo		cterm=bold ctermfg=".term_construct_color." ctermbg=".term_warning_text_color." gui=bold guifg=".gui_construct_color." guibg=".gui_warning_text_color
 execute "hi Type		cterm=bold ctermfg=".term_type_color." gui=bold guifg=".gui_type_color
-execute "hi Typedef		cterm=none ctermfg=".term_text_color." gui=bold guifg=".gui_construct_color
+execute "hi Typedef		cterm=none ctermfg=".term_text_color." gui=none guifg=".gui_text_color
 execute "hi Underlined	cterm=underline,bold ctermfg=".term_warning_text_color." gui=underline,bold guifg=".gui_warning_text_color
 execute "hi SpellBad    cterm=bold ctermfg=".term_construct_color." ctermbg=".term_warning_text_color." gui=bold guifg=".gui_construct_color." guibg=".gui_warning_text_color
 " }}}

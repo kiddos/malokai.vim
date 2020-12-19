@@ -196,9 +196,6 @@ let c_syntax_for_h = 1
 " }}}
 "" enable Java syntax highlight {{{
 let java_highlight_java_lang_ids=1
-let java_highlight_functions="style"
-let java_allow_cpp_keywords = 0
-let java_minlines = 1024
 " }}}
 "" enable Python syntax highlight {{{
 let python_highlight_all = 1
@@ -207,6 +204,6 @@ let python_highlight_all = 1
 " support for code_color plugin {{{
 exe "hi Variable      cterm=none ctermfg=".term_text_color." ctermbg=none gui=none guifg=".gui_text_color
 exe "hi Member        cterm=none ctermfg=".term_function_color." ctermbg=none gui=none guifg=".gui_function_color
-exe "hi Namespace     cterm=bold ctermfg=208 ctermbg=none gui=none guifg=#F5B624"
-exe "hi EnumConstant  cterm=bold ctermfg=".term_constant_color." ctermbg=none gui=bold guifg=".gui_constant_color
+exe "hi Namespace     cterm=none ctermfg=".term_identifier_color." ctermbg=none gui=none guifg=".gui_identifier_color
+exe "hi EnumConstant  cterm=none ctermfg=".term_constant_color." ctermbg=none gui=bold guifg=".gui_constant_color
 " }}}

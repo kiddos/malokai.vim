@@ -1,13 +1,12 @@
 ""
 "" Vim color scheme
 "" Maintainer: Joseph Yu
-"" Last Change: 2020 07 18
+"" Last Change: 2021 03 28
 ""
 
 hi clear
 
 let color_name = "malokai"
-
 " set t_Co=256
 " set background=dark
 
@@ -15,177 +14,157 @@ if exists("syntax_on")
   syntax reset
 endif
 
-" terminal colors
-" using screen 256 colors
-let term_text_color = "252"
-let term_bg_color = "234"
-let term_cursor_line_color = "234"
-let term_hl_color = "235"
-let term_strong_hl_color = "235"
-let term_diff_delete = "27"
-let term_fold_color = "250"
-let term_dark_bg_color = "232"
-let term_warning_text_color = "214"
-let term_light_text_color = "246"
-let term_popup_bg_color = "236"
-let term_popup_sel_color = "239"
-let term_popup_thumb_color = "242"
-let term_tab_bg_fill = "232"
-let term_tab_bg = "235"
-let term_tab_select = "237"
-let term_select_bg = "236"
-let term_directory = "112"
-let term_vertsplit = "244"
-let term_match_paren = "227"
-let term_non_text = "59"
-let term_special = "161"
-" gui color
-let gui_text_color = "#D0D0D0"
-let gui_bg_color = "#1C1C1C"
-let gui_hl_color = "#262626"
-let gui_cursor_line_color = "#262626"
-let gui_strong_hl_color = "#262626"
-let gui_diff_delete = "#B05FFF"
-let gui_fold_color = "#BCBCBC"
-let gui_dark_bg_color = "#1C1C1C"
-let gui_warning_text_color = "#FFAF00"
-let gui_light_text_color = "#949494"
-let gui_popup_bg_color = "#303030"
-let gui_popup_sel_color = "#4E4E4E"
-let gui_popup_thumb_color = "#6C6C6C"
-let gui_tab_bg_fill = "#080808"
-let gui_tab_bg = "#262626"
-let gui_tab_select = "#3A3A3A"
-let gui_select_bg = "#303030"
-let gui_directory = "#62DA62"
-let gui_vertsplit = "#808080"
-let gui_match_paren = "#FFFF5F"
-let gui_non_text = "#5F5F5F"
-let gui_special = "#D70051"
+function s:SetHighlight(name, fg, bg, fontface)
+  let l:fontface = a:fontface
+
+  if empty(l:fontface)
+    let l:fontface = 'none'
+  endif
+
+  if !empty(a:fg)
+    exec 'hi ' . a:name . ' guifg=' . a:fg.gui . ' ctermfg=' . a:fg.cterm
+  endif
+
+  if !empty(a:bg)
+    exec 'hi ' . a:name . ' guibg=' . a:bg.gui . ' ctermbg=' . a:bg.cterm
+  endif
+
+  if !empty(l:fontface)
+    exec 'hi ' . a:name . ' gui=' . l:fontface . ' cterm=' . l:fontface
+  endif
+endfunction
+
+let s:purple = { 'gui': '#D787FF', 'cterm': '177' }
+let s:red = { 'gui': '#FF005F', 'cterm': '197' }
+let s:green = { 'gui': '#87FF5F', 'cterm': '156' }
+let s:cyan = { 'gui': '#87FFFF', 'cterm': '123' }
+let s:yellow = { 'gui': '#FFFF87', 'cterm': '228' }
+let s:orange = { 'gui': '#FF8700', 'cterm': '208' }
+
+let s:comment = { 'gui': '#535353', 'cterm': '243' }
+let s:error = { 'gui': '#AF0000', 'cterm': '124' }
+let s:none = { 'gui': 'none', 'cterm': 'none' }
+let s:fg = { 'gui': '#D0D0D0', 'cterm': '252' }
+let s:bg = { 'gui': '#1C1C1C', 'cterm': '234' }
+
+let s:folded = { 'gui': '#BCBCBC', 'cterm': '250' }
+let s:hl_bg = { 'gui': '#1C1C1C', 'cterm': '232' }
+let s:warning = { 'gui': '#FFAF00', 'cterm': '214' }
+let s:line_number_fg = { 'gui': '#949494', 'cterm': '246' }
+let s:line_number_bg = { 'gui': '#262626', 'cterm': '235' }
+
+let s:menu_bg = { 'gui': '#303030', 'cterm': '236' }
+let s:menu_selected_bg = { 'gui': '#4E4E4E', 'cterm': '239' }
+let s:menu_thumb = { 'gui': '#6C6C6C', 'cterm': '242' }
+let s:menu_thumb_bg = { 'gui': '#262626', 'cterm': '235' }
+
+let s:select_bg = { 'gui': '#303030', 'cterm': '236'}
+
+let s:tab_bg = { 'gui': '#262626', 'cterm': '235' }
+let s:tab_bg_fill = { 'gui': '#080808', 'cterm': '232' }
+let s:tab_bg_selected = { 'gui': '#3A3A3A', 'cterm': '237' }
 
 " normal & cursor {{{
-execute "hi Normal cterm=none ctermfg=".term_text_color." ctermbg=".term_bg_color." gui=none guifg=".gui_text_color." guibg=".gui_bg_color
-execute "hi Cursor cterm=reverse gui=reverse"
-execute "hi CursorIM cterm=reverse gui=reverse"
-execute "hi CursorColumn cterm=none ctermfg=none ctermbg=".term_hl_color." gui=none guifg=none guibg=".gui_hl_color
-execute "hi CursorLine cterm=none ctermfg=none ctermbg=".term_cursor_line_color." gui=none guifg=none guibg=".gui_cursor_line_color
+call s:SetHighlight('Normal', s:fg, s:bg, '')
+call s:SetHighlight('Cursor', '', '', 'reverse')
+call s:SetHighlight('CursorIM', '', '', 'reverse')
+call s:SetHighlight('CursorLine', '', '', '')
 " }}}
 " diff {{{
-execute "hi DiffAdd     cterm=bold ctermbg=none ctermfg=none gui=bold guibg=none guifg=none"
-execute "hi DiffChange  cterm=bold ctermbg=none ctermfg=none gui=bold guibg=none guifg=none"
-execute "hi	DiffDelete	cterm=bold ctermbg=none ctermfg=".term_diff_delete." gui=bold guibg=none guifg=".gui_diff_delete
-execute "hi	DiffText	cterm=bold ctermbg=none ctermfg=".term_diff_delete." gui=bold guibg=none guifg=".gui_diff_delete
+call s:SetHighlight('DiffAdd', '', '', '')
+call s:SetHighlight('DiffChange', '', '', '')
+call s:SetHighlight('DiffDelete', '', '', '')
+call s:SetHighlight('DiffText', '', '', '')
 " }}}
 " fold {{{
-execute "hi Folded        cterm=none ctermbg=none  ctermfg=".term_fold_color." gui=none guifg=".gui_fold_color." guibg=none"
-execute "hi FoldedColumn  cterm=none ctermbg=none  ctermfg=".term_fold_color." gui=none guifg=".gui_fold_color." guibg=none"
+call s:SetHighlight('Folded', s:folded, s:bg, '')
+call s:SetHighlight('FoldedColumn', s:folded, s:bg, '')
 " }}}
 " search {{{
-execute "hi	Search cterm=none  ctermfg=none ctermbg=".term_dark_bg_color." gui=none guibg=".gui_dark_bg_color." guifg=none"
-execute "hi	IncSearch cterm=bold	ctermfg=none ctermbg=".term_dark_bg_color." gui=bold guibg=".gui_dark_bg_color." guifg=none"
+call s:SetHighlight('Search', s:none, s:hl_bg, '')
+call s:SetHighlight('IncSearch', s:none, s:hl_bg, '')
 " }}}
 " line number {{{
-execute "hi	LineNr cterm=none  ctermfg=".term_light_text_color." ctermbg=".term_hl_color." gui=none	guifg=".gui_light_text_color." guibg=".gui_hl_color
-execute "hi	CursorLineNr  cterm=bold  ctermfg=".term_text_color." ctermbg=".term_strong_hl_color." gui=bold	guifg=".gui_text_color." guibg=".gui_strong_hl_color
+call s:SetHighlight('LineNr', s:line_number_fg, s:line_number_bg, '')
+call s:SetHighlight('CursorLineNr', s:fg, s:line_number_bg, 'bold')
 " }}}
 " message {{{
-execute "hi	ErrorMsg cterm=bold	ctermfg=".term_warning_text_color." ctermbg=none  gui=bold guibg=none guifg=".gui_warning_text_color
-execute "hi	MoreMsg cterm=bold	ctermfg=".term_text_color."	ctermbg=none gui=bold guibg=none guifg=".gui_text_color
-execute "hi	WarningMsg	cterm=bold	ctermfg=".term_warning_text_color." ctermbg=none gui=bold guibg=none guifg=".gui_warning_text_color
-execute "hi	Question cterm=bold  ctermfg=".term_text_color." ctermbg=none gui=bold guibg=none guifg=".gui_text_color
+call s:SetHighlight('ErrorMsg', s:orange, '', '')
+call s:SetHighlight('WarningMsg', s:orange, '', '')
+call s:SetHighlight('MoreMsg', s:fg, '', '')
+call s:SetHighlight('Question', s:fg, '', '')
 " }}}
 " popup menu {{{
-execute "hi	Pmenu		cterm=bold	ctermfg=".term_text_color." ctermbg=".term_popup_bg_color." gui=bold guifg="gui_text_color." guibg=".gui_popup_bg_color
-execute "hi	PmenuSel	cterm=bold	ctermfg=".term_text_color."	ctermbg=".term_popup_sel_color." gui=bold guifg=".gui_text_color." guibg=".gui_popup_sel_color
-execute "hi	PmenuSbar	cterm=none  ctermfg=".term_hl_color." ctermbg=".term_hl_color."	gui=none guifg=".gui_hl_color." guibg=".gui_hl_color
-execute "hi	PmenuThumb	cterm=none  ctermfg=".term_popup_thumb_color." ctermbg=".term_popup_thumb_color." gui=none guifg=".gui_popup_thumb_color." guibg=".gui_popup_thumb_color
+call s:SetHighlight('Pmenu', s:fg, s:menu_bg, '')
+call s:SetHighlight('PmenuSel', s:fg, s:menu_selected_bg, 'bold')
+call s:SetHighlight('PmenuSbar', s:menu_thumb_bg, s:menu_thumb_bg, '')
+call s:SetHighlight('PmenuThumb', s:menu_thumb, s:menu_thumb, '')
 " }}}
 " Tabs {{{
-execute "hi	TabLine cterm=bold ctermfg=".term_text_color." ctermbg=".term_tab_bg." gui=bold guifg=".gui_text_color." guibg=".gui_tab_bg
-execute "hi	TabLineFill	cterm=none ctermfg=".term_tab_bg_fill." ctermbg=".term_tab_bg_fill." gui=none guifg=".gui_tab_bg_fill." guibg=".gui_tab_bg_fill
-execute "hi	TabLineSel cterm=underline,bold  ctermfg=".term_text_color." ctermbg=".term_tab_select." gui=underline,bold guifg=".gui_text_color." guibg=".gui_tab_select
+call s:SetHighlight('TabLine', s:fg, s:tab_bg, '')
+call s:SetHighlight('TabLineFill', s:fg, s:tab_bg_fill, '')
+call s:SetHighlight('TabLineSel', s:fg, s:tab_bg_selected, 'bold')
 " }}}
 " visual {{{
-execute "hi	Visual cterm=none ctermbg=".term_select_bg." gui=none guibg=".gui_select_bg
-execute "hi	VisualNOS cterm=none ctermbg=".term_select_bg." gui=none guibg=".gui_select_bg
+call s:SetHighlight('Visual', '', s:select_bg, '')
+call s:SetHighlight('VisualNOS', '', s:select_bg, '')
 " }}}
 " other {{{
-execute "hi	SignColumn	cterm=bold ctermfg=".term_text_color." ctermbg=none gui=bold guibg=none guifg=".gui_text_color
-execute "hi	Directory	cterm=bold ctermfg=".term_directory." ctermbg=none gui=bold guibg=none guifg=".gui_directory
-execute "hi	VertSplit	cterm=bold ctermfg=16 ctermbg=".term_vertsplit." gui=bold guifg=#000000 guibg=".gui_vertsplit
-execute "hi	MatchParen	cterm=bold ctermfg=".term_match_paren." ctermbg=".term_strong_hl_color." gui=bold guifg=".gui_match_paren." guibg=".gui_strong_hl_color
-execute "hi	NonText		cterm=bold ctermfg=".term_non_text." ctermbg=none gui=bold guibg=none guifg=".gui_non_text
-execute "hi	SpecialKey	cterm=none ctermfg=".term_special." ctermbg=none gui=none guibg=none guifg=".gui_special
-execute "hi	WildMenu	cterm=bold ctermfg=none ctermbg=".term_dark_bg_color." gui=bold guifg=none guibg=".gui_dark_bg_color
-" }}}
-" gui highlight {{{
-execute "hi	Menu gui=bold guifg=".gui_text_color." guibg=".gui_bg_color
-execute "hi	scrollbars gui=bold guifg=".gui_strong_hl_color." guibg=".gui_dark_bg_color
-execute "hi	Tooltip gui=bold guifg=".gui_text_color." guibg=".gui_hl_color
+call s:SetHighlight('SignColumn', s:fg, s:none, '')
+call s:SetHighlight('Directory', s:green, s:none, 'bold')
+call s:SetHighlight('NonText', s:green, s:none, '')
+call s:SetHighlight('Title', s:fg, '', '')
 " }}}
 
-let term_constant_color = "135"
-let term_construct_color = "161"
-let term_comment_color = "243"
-let term_error_color = "124"
-let term_function_color = "112"
-let term_type_color = "81"
-let term_string_color = "227"
-let term_identifier_color = "166"
+"	general syntax highlighting {{{
+call s:SetHighlight('Constant', s:purple, '', '')
+call s:SetHighlight('String', s:yellow, '', '')
+call s:SetHighlight('Character', s:purple, '', '')
+call s:SetHighlight('Number', s:purple, '', '')
+call s:SetHighlight('Boolean', s:purple, '', 'bold')
+call s:SetHighlight('Float', s:purple, '', '')
 
-let gui_constant_color = "#B563DE"
-let gui_construct_color = "#D70051"
-let gui_comment_color = "#535353"
-let gui_error_color = "#AF0000"
-let gui_function_color = "#62DA62"
-let gui_type_color = "#02E8E5"
-let gui_string_color = "#F0F05D"
-let gui_identifier_color = "#FF5F00"
+call s:SetHighlight('Identifier', s:orange, '', '')
+call s:SetHighlight('Function', s:green, '', '')
 
-""	general syntax highlighting {{{
-execute "hi Boolean cterm=bold ctermfg=".term_constant_color." gui=bold guifg=".gui_constant_color
-execute "hi Character cterm=none ctermfg=".term_constant_color." gui=none guifg=".gui_constant_color
-execute "hi Comment cterm=none ctermfg=".term_comment_color." gui=none guifg=".gui_comment_color
-execute "hi Conditional	cterm=bold ctermfg=".term_construct_color." gui=bold guifg=".gui_construct_color
-execute "hi Constant	cterm=none ctermfg=".term_constant_color." gui=none guifg=".gui_constant_color
-execute "hi Debug		cterm=bold ctermfg=".term_text_color." gui=bold guifg=".gui_text_color
-execute "hi Define		cterm=bold ctermfg=".term_construct_color." gui=bold guifg=".gui_construct_color
-execute "hi Delimiter	cterm=none ctermfg=".term_text_color." gui=none	guifg=".gui_text_color
-execute "hi Error		cterm=bold ctermfg=".term_text_color." ctermbg=".term_error_color." gui=bold guifg=".gui_text_color." guibg=".gui_error_color
-execute "hi Exception	cterm=bold ctermfg=".term_construct_color." gui=bold guifg=".gui_construct_color
-execute "hi Float		cterm=none ctermfg=".term_constant_color." gui=none guifg=".gui_constant_color
-execute "hi Function	cterm=none ctermfg=".term_function_color." gui=none guifg=".gui_function_color
-execute "hi Identifier	cterm=none ctermfg=".term_identifier_color." gui=none guifg=".gui_identifier_color
-execute "hi Ignore		cterm=bold ctermfg=".term_error_color." gui=bold guifg=".gui_error_color
-execute "hi Include		cterm=bold ctermfg=".term_string_color." gui=bold guifg=".gui_string_color
-execute "hi Keyword		cterm=bold ctermfg=".term_construct_color." gui=bold guifg=".gui_construct_color
-execute "hi Label		cterm=bold ctermfg=".term_construct_color."	gui=bold guifg=".gui_construct_color
-execute "hi Macro		cterm=none ctermfg=".term_type_color." gui=none guifg=".gui_type_color
-execute "hi Number		cterm=none ctermfg=".term_constant_color." gui=none guifg=".gui_constant_color
-execute "hi Operator	cterm=none ctermfg=".term_text_color." gui=none guifg=".gui_text_color
-execute "hi PreCondit	cterm=bold ctermfg=".term_construct_color." gui=bold guifg=".gui_construct_color
-execute "hi PreProc		cterm=bold ctermfg=".term_construct_color." gui=bold guifg=".gui_construct_color
-execute "hi Repeat		cterm=bold ctermfg=".term_construct_color." gui=bold guifg=".gui_construct_color
-execute "hi Special		    cterm=none ctermfg=".term_type_color." gui=none guifg=".gui_type_color
-execute "hi SpecialChar	    cterm=none ctermfg=".term_type_color." gui=none guifg=".gui_type_color
-execute "hi SpecialComment  cterm=bold ctermfg=".term_comment_color." gui=bold guifg=".gui_comment_color
-execute "hi Statement	    cterm=bold ctermfg=".term_construct_color." gui=bold guifg=".gui_construct_color
-execute "hi StorageClass	cterm=bold ctermfg=".term_construct_color." gui=bold guifg=".gui_construct_color
-execute "hi String		cterm=none ctermfg=".term_string_color." gui=none guifg=".gui_string_color
-execute "hi Structure	cterm=bold ctermfg=".term_construct_color." gui=bold guifg=".gui_construct_color
-execute "hi Tag			cterm=bold ctermfg=".term_construct_color." gui=bold guifg=".gui_construct_color
-execute "hi Title		cterm=bold ctermfg=".term_text_color." gui=bold guifg=".gui_text_color
-execute "hi Todo		cterm=bold ctermfg=".term_construct_color." ctermbg=".term_warning_text_color." gui=bold guifg=".gui_construct_color." guibg=".gui_warning_text_color
-execute "hi Type		cterm=none ctermfg=".term_type_color." gui=none guifg=".gui_type_color
-execute "hi Typedef		cterm=none ctermfg=".term_text_color." gui=none guifg=".gui_text_color
-execute "hi Underlined	cterm=underline,bold ctermfg=".term_warning_text_color." gui=underline,bold guifg=".gui_warning_text_color
-execute "hi SpellBad    cterm=bold ctermfg=".term_construct_color." ctermbg=".term_warning_text_color." gui=bold guifg=".gui_construct_color." guibg=".gui_warning_text_color
+call s:SetHighlight('Statement', s:red, '', 'bold')
+call s:SetHighlight('Conditional', s:red, '', '')
+call s:SetHighlight('Repeat', s:red, '', 'bold')
+call s:SetHighlight('Label', s:red, '', 'bold')
+call s:SetHighlight('Operator', s:fg, '', '')
+call s:SetHighlight('Keyword', s:red, '', 'bold')
+call s:SetHighlight('Exception', s:red, '', 'bold')
+
+call s:SetHighlight('PreProc', s:red, '', 'bold')
+call s:SetHighlight('Include', s:yellow, '', 'bold')
+call s:SetHighlight('Define', s:red, '', 'bold')
+call s:SetHighlight('Macro', s:cyan, '', '')
+call s:SetHighlight('PreCondit', s:red, '', 'bold')
+
+call s:SetHighlight('Type', s:cyan, '', '')
+call s:SetHighlight('StorageClass', s:red, '', 'bold')
+call s:SetHighlight('Structure', s:red, '', 'bold')
+call s:SetHighlight('Typedef', s:cyan, '', '')
+
+call s:SetHighlight('Special', s:cyan, '', '')
+call s:SetHighlight('SpecialChar', s:cyan, '', '')
+call s:SetHighlight('Tag', s:green, '', '')
+call s:SetHighlight('Delimiter', s:fg, '', '')
+call s:SetHighlight('SpecialComment', s:comment, '', '')
+call s:SetHighlight('Debug', s:fg, '', '')
+
+call s:SetHighlight('Underlined', s:yellow, '', '')
+
+call s:SetHighlight('Comment', s:comment, '', '')
+
+" call s:SetHighlight('Ignore', s:error, '', 'bold')
+
+call s:SetHighlight('Error', s:error, s:bg, 'bold')
+
+call s:SetHighlight('Todo', s:orange, s:bg, '')
 " }}}
 
-highlight def link LspDiagnosticsDefaultError Error
-highlight def link LspDiagnosticsDefaultWarning WarningMsg
-
-"" enable C syntax highlight {{{
+" enable C syntax highlight {{{
 let c_gnu = 1
 let c_comment_strings = 1
 let c_space_errors = 1
@@ -194,16 +173,29 @@ let c_ansi_typedefs = 1
 let c_ansi_constants = 1
 let c_syntax_for_h = 1
 " }}}
-"" enable Java syntax highlight {{{
+" enable Java syntax highlight {{{
 let java_highlight_java_lang_ids=1
 " }}}
-"" enable Python syntax highlight {{{
+" enable Python syntax highlight {{{
 let python_highlight_all = 1
 " }}}
 
-" support for code_color plugin {{{
-exe "hi Variable      cterm=none ctermfg=".term_text_color." ctermbg=none gui=none guifg=".gui_text_color
-exe "hi Member        cterm=none ctermfg=".term_function_color." ctermbg=none gui=none guifg=".gui_function_color
-exe "hi Namespace     cterm=none ctermfg=".term_identifier_color." ctermbg=none gui=none guifg=".gui_identifier_color
-exe "hi EnumConstant  cterm=none ctermfg=".term_constant_color." ctermbg=none gui=bold guifg=".gui_constant_color
+" MaxMEllon/vim-jsx-pretty {{{
+call s:SetHighlight('jsxTag', s:cyan, '', '')
+call s:SetHighlight('jsxTagName', s:red, '', '')
+call s:SetHighlight('jsxComponentName', s:green, '', '')
+" call s:SetHighlight('jsxCloseTag', s:cyan, '', '')
+" call s:SetHighlight('jsxEscapeJs', s:fg, '', '')
+call s:SetHighlight('jsxCloseString', s:fg, '', '')
+call s:SetHighlight('jsxAttrib', s:green, '', '')
+call s:SetHighlight('jsxString', s:yellow, '', '')
+call s:SetHighlight('jsxEqual', s:fg, '', '')
+call s:SetHighlight('jsxDot', s:cyan, '', '')
+call s:SetHighlight('jsxSpreadOperator', s:cyan, '', '')
+call s:SetHighlight('jsxBraces', s:cyan, '', '')
+" call s:SetHighlight('jsxNamespace', s:green, '', '')
+" }}}
+" lsp {{{
+highlight def link LspDiagnosticsDefaultError Error
+highlight def link LspDiagnosticsDefaultWarning WarningMsg
 " }}}

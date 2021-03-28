@@ -168,6 +168,10 @@ call s:SetHighlight('Error', s:red, s:bg, 'bold')
 call s:SetHighlight('Todo', s:orange, s:bg, '')
 " }}}
 
+" extra {{{
+call s:SetHighlight('Symbol', s:fg, '', 'bold')
+" }}}
+
 " enable C syntax highlight {{{
 let c_gnu = 1
 let c_comment_strings = 1

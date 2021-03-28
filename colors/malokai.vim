@@ -35,7 +35,7 @@ function s:SetHighlight(name, fg, bg, fontface)
 endfunction
 
 let s:purple = { 'gui': '#D787FF', 'cterm': '177' }
-let s:red = { 'gui': '#FF005F', 'cterm': '197' }
+let s:red = { 'gui': '#D7005F', 'cterm': '161' }
 let s:dark_red = { 'gui': '#D70000', 'cterm': '160' }
 let s:green = { 'gui': '#87FF5F', 'cterm': '156' }
 let s:cyan = { 'gui': '#87FFFF', 'cterm': '123' }

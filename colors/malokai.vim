@@ -36,20 +36,22 @@ endfunction
 
 let s:purple = { 'gui': '#D787FF', 'cterm': '177' }
 let s:red = { 'gui': '#FF005F', 'cterm': '197' }
+let s:dark_red = { 'gui': '#D70000', 'cterm': '160' }
 let s:green = { 'gui': '#87FF5F', 'cterm': '156' }
 let s:cyan = { 'gui': '#87FFFF', 'cterm': '123' }
 let s:yellow = { 'gui': '#FFFF87', 'cterm': '228' }
 let s:orange = { 'gui': '#FF8700', 'cterm': '208' }
 
 let s:comment = { 'gui': '#535353', 'cterm': '243' }
-let s:error = { 'gui': '#AF0000', 'cterm': '124' }
+let s:error_bg = { 'gui': '#FF5F87', 'cterm': '124' }
+let s:error_fg = { 'gui': '#BCBCBC', 'cterm': '249' }
 let s:none = { 'gui': 'none', 'cterm': 'none' }
 let s:fg = { 'gui': '#D0D0D0', 'cterm': '252' }
 let s:bg = { 'gui': '#1C1C1C', 'cterm': '234' }
 
 let s:folded = { 'gui': '#BCBCBC', 'cterm': '250' }
 let s:hl_bg = { 'gui': '#1C1C1C', 'cterm': '232' }
-let s:warning = { 'gui': '#FFAF00', 'cterm': '214' }
+let s:warning = { 'gui': '#FF5F00', 'cterm': '202' }
 let s:line_number_fg = { 'gui': '#949494', 'cterm': '246' }
 let s:line_number_bg = { 'gui': '#262626', 'cterm': '235' }
 
@@ -89,8 +91,8 @@ call s:SetHighlight('LineNr', s:line_number_fg, s:line_number_bg, '')
 call s:SetHighlight('CursorLineNr', s:fg, s:line_number_bg, 'bold')
 " }}}
 " message {{{
-call s:SetHighlight('ErrorMsg', s:orange, '', '')
-call s:SetHighlight('WarningMsg', s:orange, '', '')
+call s:SetHighlight('ErrorMsg', s:red, s:none, '')
+call s:SetHighlight('WarningMsg', s:orange, s:none, '')
 call s:SetHighlight('MoreMsg', s:fg, '', '')
 call s:SetHighlight('Question', s:fg, '', '')
 " }}}
@@ -151,7 +153,7 @@ call s:SetHighlight('SpecialChar', s:cyan, '', '')
 call s:SetHighlight('Tag', s:green, '', '')
 call s:SetHighlight('Delimiter', s:fg, '', '')
 call s:SetHighlight('SpecialComment', s:comment, '', '')
-call s:SetHighlight('Debug', s:fg, '', '')
+call s:SetHighlight('Debug', s:fg, s:none, '')
 
 call s:SetHighlight('Underlined', s:yellow, '', '')
 
@@ -159,7 +161,7 @@ call s:SetHighlight('Comment', s:comment, '', '')
 
 " call s:SetHighlight('Ignore', s:error, '', 'bold')
 
-call s:SetHighlight('Error', s:error, s:bg, 'bold')
+call s:SetHighlight('Error', s:red, s:bg, 'bold')
 
 call s:SetHighlight('Todo', s:orange, s:bg, '')
 " }}}
@@ -195,7 +197,18 @@ call s:SetHighlight('jsxSpreadOperator', s:cyan, '', '')
 call s:SetHighlight('jsxBraces', s:cyan, '', '')
 " call s:SetHighlight('jsxNamespace', s:green, '', '')
 " }}}
+" ale {{{
+call s:SetHighlight('ALEError', s:error_fg, s:error_bg, 'bold')
+call s:SetHighlight('ALEWarning', s:bg, s:warning, 'bold')
+call s:SetHighlight('ALEInfo', s:fg, s:none, '')
+call s:SetHighlight('ALEStyleError', s:error_fg, s:error_bg, 'bold')
+call s:SetHighlight('ALEStyleWarning', s:bg, s:warning, 'bold')
+" call s:SetHighlight('ALEErrorLine', s:fg, s:red, '')
+" call s:SetHighlight('ALEWarningLine', s:fg, s:orange, '')
+" call s:SetHighlight('ALEInfoLine', s:fg, s:none, 'bold')
+" }}}
 " lsp {{{
-highlight def link LspDiagnosticsDefaultError Error
-highlight def link LspDiagnosticsDefaultWarning WarningMsg
+call s:SetHighlight('LspDiagnosticsDefaultError', s:error_fg, s:error_bg, 'bold')
+call s:SetHighlight('LspDiagnosticsDefaultWarning', s:bg, s:warning, 'bold')
+call s:SetHighlight('LspDiagnosticsDefaultInformation', s:fg, s:none, '')
 " }}}

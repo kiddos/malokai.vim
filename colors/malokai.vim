@@ -50,7 +50,7 @@ let s:fg = { 'gui': '#D0D0D0', 'cterm': '252' }
 let s:bg = { 'gui': '#1C1C1C', 'cterm': '234' }
 
 let s:folded = { 'gui': '#BCBCBC', 'cterm': '250' }
-let s:hl_bg = { 'gui': '#1C1C1C', 'cterm': '232' }
+let s:hl_bg = { 'gui': '#080808', 'cterm': '232' }
 let s:warning = { 'gui': '#FF5F00', 'cterm': '202' }
 let s:line_number_fg = { 'gui': '#949494', 'cterm': '246' }
 let s:line_number_bg = { 'gui': '#262626', 'cterm': '235' }
@@ -70,7 +70,8 @@ let s:tab_bg_selected = { 'gui': '#3A3A3A', 'cterm': '237' }
 call s:SetHighlight('Normal', s:fg, s:bg, '')
 call s:SetHighlight('Cursor', '', '', 'reverse')
 call s:SetHighlight('CursorIM', '', '', 'reverse')
-call s:SetHighlight('CursorLine', '', '', '')
+call s:SetHighlight('CursorColumn', s:none, '', 'reverse')
+call s:SetHighlight('CursorLine', s:none, '', '')
 " }}}
 " diff {{{
 call s:SetHighlight('DiffAdd', '', '', '')
@@ -116,6 +117,7 @@ call s:SetHighlight('SignColumn', s:fg, s:none, '')
 call s:SetHighlight('Directory', s:green, s:none, 'bold')
 call s:SetHighlight('NonText', s:green, s:none, '')
 call s:SetHighlight('Title', s:fg, '', '')
+call s:SetHighlight('MatchParen', s:orange, s:hl_bg, '')
 " }}}
 
 "	general syntax highlighting {{{

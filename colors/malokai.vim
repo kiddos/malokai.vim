@@ -132,7 +132,7 @@ call s:SetHighlight('Identifier', s:orange, '', '')
 call s:SetHighlight('Function', s:green, '', '')
 
 call s:SetHighlight('Statement', s:red, '', 'bold')
-call s:SetHighlight('Conditional', s:red, '', '')
+call s:SetHighlight('Conditional', s:red, '', 'bold')
 call s:SetHighlight('Repeat', s:red, '', 'bold')
 call s:SetHighlight('Label', s:red, '', 'bold')
 call s:SetHighlight('Operator', s:fg, '', '')

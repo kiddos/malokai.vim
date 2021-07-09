@@ -107,7 +107,7 @@ call s:SetHighlight('PmenuThumb', s:menu_thumb, s:menu_thumb, '')
 call s:SetHighlight('TabLine', s:fg, s:tab_bg, '')
 call s:SetHighlight('TabLineFill', s:fg, s:tab_bg_fill, '')
 call s:SetHighlight('TabLineSel', s:fg, s:tab_bg_selected, 'bold')
-" barbar
+" barbar {{{
 call s:SetHighlight('BufferCurrent', s:fg, s:tab_bg_selected, 'bold')
 call s:SetHighlight('BufferCurrentIndex', s:fg, s:tab_bg_selected, '')
 call s:SetHighlight('BufferCurrentMod', s:fg, s:tab_bg_selected, '')
@@ -127,6 +127,7 @@ call s:SetHighlight('BufferInactiveSign', s:fg, s:tab_bg, '')
 call s:SetHighlight('BufferInactiveTarget', s:fg, s:tab_bg, 'bold')
 call s:SetHighlight('BufferInactiveIcon', s:red, s:tab_bg, '')
 " }}}
+" }}}
 " visual {{{
 call s:SetHighlight('Visual', '', s:select_bg, '')
 call s:SetHighlight('VisualNOS', '', s:select_bg, '')
@@ -137,6 +138,68 @@ call s:SetHighlight('Directory', s:green, s:none, 'bold')
 call s:SetHighlight('NonText', s:green, s:none, '')
 call s:SetHighlight('Title', s:fg, '', '')
 call s:SetHighlight('MatchParen', s:orange, s:hl_bg, '')
+" }}}
+
+" tree-sitter {{{
+" constants {{{
+call s:SetHighlight('TSBoolean', s:purple, '', '')
+call s:SetHighlight('TSCharacter', s:purple, '', '')
+call s:SetHighlight('TSConstant', s:purple, '', '')
+call s:SetHighlight('TSFloat', s:purple, '', '')
+call s:SetHighlight('TSConstBuiltin', s:purple, '', '')
+call s:SetHighlight('TSConstMacro', s:purple, '', '')
+call s:SetHighlight('TSNumber', s:purple, '', '')
+call s:SetHighlight('TSString', s:yellow, '', '')
+call s:SetHighlight('TSStringRegex', s:yellow, '', '')
+call s:SetHighlight('TSStringEscape', s:purple, '', '')
+call s:SetHighlight('TSNamespace', s:purple, '', '')
+" }}}
+" keywords {{{
+call s:SetHighlight('TSException', s:red, '', 'bold')
+call s:SetHighlight('TSInclude', s:red, '', 'bold')
+call s:SetHighlight('TSKeyword', s:red, '', 'bold')
+call s:SetHighlight('TSKeywordFunction', s:red, '', 'bold')
+call s:SetHighlight('TSKeywordOperator', s:red, '', 'bold')
+call s:SetHighlight('TSKeywordReturn', s:red, '', 'bold')
+call s:SetHighlight('TSRepeat', s:red, '', 'bold')
+" }}}
+" function {{{
+call s:SetHighlight('TSFunction', s:green, '', '')
+call s:SetHighlight('TSFuncBuiltin', s:green, '', '')
+" }}}
+" parameters {{{
+call s:SetHighlight('TSParameter', s:orange, '', '')
+call s:SetHighlight('TSProperty', s:green, '', '')
+call s:SetHighlight('TSField', s:green, '', '')
+call s:SetHighlight('TSSymbol', s:orange, '', '')
+" }}}
+" variable {{{
+call s:SetHighlight('TSVariable', s:fg, '', '')
+call s:SetHighlight('TSVariableBuiltin', s:purple, '', '')
+" }}}
+" operator {{{
+call s:SetHighlight('TSOperator', s:fg, '', '')
+call s:SetHighlight('TSParameter', s:fg, '', '')
+" }}}
+" label {{{
+call s:SetHighlight('TSLabel', s:orange, '', '')
+" }}}
+" types {{{
+call s:SetHighlight('TSConstructor', s:cyan, '', '')
+call s:SetHighlight('TSType', s:cyan, '', '')
+call s:SetHighlight('TSTypeBuiltin', s:cyan, '', '')
+" }}}
+" html {{{
+call s:SetHighlight('TSTag', s:cyan, '', '')
+call s:SetHighlight('TSTagDelimiter', s:fg, '', '')
+call s:SetHighlight('TSText', s:fg, '', '')
+call s:SetHighlight('TSStrong', s:fg, '', 'bold')
+call s:SetHighlight('TSEmphasis', s:fg, '', 'bold')
+call s:SetHighlight('TSUnderline', s:fg, '', 'underline')
+call s:SetHighlight('TSTitle', s:fg, '', 'bold')
+call s:SetHighlight('TSLiteral', s:fg, '', '')
+call s:SetHighlight('TSURI', s:cyan, '', '')
+" }}}
 " }}}
 
 "	general syntax highlighting {{{
@@ -208,9 +271,9 @@ let python_highlight_all = 1
 " }}}
 
 " MaxMEllon/vim-jsx-pretty {{{
-call s:SetHighlight('jsxTag', s:cyan, '', '')
+call s:SetHighlight('jsxTag', s:fg, '', '')
 call s:SetHighlight('jsxTagName', s:red, '', '')
-call s:SetHighlight('jsxComponentName', s:green, '', '')
+call s:SetHighlight('jsxComponentName', s:cyan, '', '')
 " call s:SetHighlight('jsxCloseTag', s:cyan, '', '')
 " call s:SetHighlight('jsxEscapeJs', s:fg, '', '')
 call s:SetHighlight('jsxCloseString', s:fg, '', '')

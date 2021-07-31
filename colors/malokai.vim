@@ -141,13 +141,15 @@ call s:SetHighlight('MatchParen', s:orange, s:hl_bg, '')
 " }}}
 
 " tree-sitter {{{
+" comment {{{
+call s:SetHighlight('TSComment', s:comment, '', '')
+" }}}
 " constants {{{
 call s:SetHighlight('TSBoolean', s:purple, '', '')
 call s:SetHighlight('TSCharacter', s:purple, '', '')
 call s:SetHighlight('TSConstant', s:purple, '', '')
 call s:SetHighlight('TSFloat', s:purple, '', '')
 call s:SetHighlight('TSConstBuiltin', s:purple, '', '')
-call s:SetHighlight('TSConstMacro', s:purple, '', '')
 call s:SetHighlight('TSNumber', s:purple, '', '')
 call s:SetHighlight('TSString', s:yellow, '', '')
 call s:SetHighlight('TSStringRegex', s:yellow, '', '')
@@ -155,23 +157,28 @@ call s:SetHighlight('TSStringEscape', s:purple, '', '')
 call s:SetHighlight('TSNamespace', s:purple, '', '')
 " }}}
 " keywords {{{
-call s:SetHighlight('TSException', s:red, '', 'bold')
+call s:SetHighlight('TSException', s:red, '', '')
 call s:SetHighlight('TSInclude', s:red, '', 'bold')
 call s:SetHighlight('TSKeyword', s:red, '', 'bold')
 call s:SetHighlight('TSKeywordFunction', s:red, '', 'bold')
 call s:SetHighlight('TSKeywordOperator', s:red, '', 'bold')
 call s:SetHighlight('TSKeywordReturn', s:red, '', 'bold')
 call s:SetHighlight('TSRepeat', s:red, '', 'bold')
+call s:SetHighlight('TSConditional', s:red, '', 'bold')
 " }}}
 " function {{{
 call s:SetHighlight('TSFunction', s:green, '', '')
 call s:SetHighlight('TSFuncBuiltin', s:green, '', '')
+call s:SetHighlight('TSFuncMacro', s:green, '', '')
+call s:SetHighlight('TSConstMacro', s:green, '', '')
+call s:SetHighlight('TSMethod', s:green, '', '')
 " }}}
 " parameters {{{
 call s:SetHighlight('TSParameter', s:orange, '', '')
 call s:SetHighlight('TSProperty', s:green, '', '')
 call s:SetHighlight('TSField', s:green, '', '')
 call s:SetHighlight('TSSymbol', s:orange, '', '')
+call s:SetHighlight('TSParameterReference', s:orange, '', '')
 " }}}
 " variable {{{
 call s:SetHighlight('TSVariable', s:fg, '', '')
@@ -180,6 +187,8 @@ call s:SetHighlight('TSVariableBuiltin', s:purple, '', '')
 " operator {{{
 call s:SetHighlight('TSOperator', s:fg, '', '')
 call s:SetHighlight('TSParameter', s:fg, '', '')
+call s:SetHighlight('TSPunctDelimiter', s:fg, '', '')
+call s:SetHighlight('TSPunctBracket', s:fg, '', '')
 " }}}
 " label {{{
 call s:SetHighlight('TSLabel', s:orange, '', '')
@@ -199,6 +208,9 @@ call s:SetHighlight('TSUnderline', s:fg, '', 'underline')
 call s:SetHighlight('TSTitle', s:fg, '', 'bold')
 call s:SetHighlight('TSLiteral', s:fg, '', '')
 call s:SetHighlight('TSURI', s:cyan, '', '')
+" }}}
+" error {{{
+call s:SetHighlight('TSError', s:error_fg, s:error_bg, '')
 " }}}
 " }}}
 

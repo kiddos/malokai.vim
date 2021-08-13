@@ -210,7 +210,7 @@ call s:SetHighlight('TSLiteral', s:fg, '', '')
 call s:SetHighlight('TSURI', s:cyan, '', '')
 " }}}
 " error {{{
-call s:SetHighlight('TSError', s:error_fg, s:error_bg, '')
+" call s:SetHighlight('TSError', s:error_fg, s:error_bg, '')
 " }}}
 " }}}
 

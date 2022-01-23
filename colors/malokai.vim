@@ -1,7 +1,7 @@
 ""
 "" Vim color scheme
 "" Maintainer: Joseph Yu
-"" Last Change: 2021 03 28
+"" Last Change: 2022 01 24
 ""
 
 hi clear
@@ -43,15 +43,15 @@ let s:yellow = { 'gui': '#FFFF87', 'cterm': '228' }
 let s:orange = { 'gui': '#FF8700', 'cterm': '208' }
 
 let s:comment = { 'gui': '#535353', 'cterm': '243' }
-let s:error_bg = { 'gui': '#FF5F87', 'cterm': '124' }
-let s:error_fg = { 'gui': '#BCBCBC', 'cterm': '249' }
+let s:error_fg = { 'gui': '#AF5FFF', 'cterm': '135' }
+let s:hint_fg = { 'gui': '#BCBCBC', 'cterm': '250' }
 let s:none = { 'gui': 'none', 'cterm': 'none' }
 let s:fg = { 'gui': '#D0D0D0', 'cterm': '252' }
 let s:bg = { 'gui': '#1C1C1C', 'cterm': '234' }
 
 let s:folded = { 'gui': '#BCBCBC', 'cterm': '250' }
 let s:hl_bg = { 'gui': '#080808', 'cterm': '232' }
-let s:warning = { 'gui': '#FF5F00', 'cterm': '202' }
+let s:warning = { 'gui': '#FF8700', 'cterm': '208' }
 let s:line_number_fg = { 'gui': '#949494', 'cterm': '246' }
 let s:line_number_bg = { 'gui': '#262626', 'cterm': '235' }
 
@@ -93,7 +93,7 @@ call s:SetHighlight('CursorLineNr', s:fg, s:line_number_bg, 'bold')
 " }}}
 " message {{{
 call s:SetHighlight('ErrorMsg', s:red, s:none, '')
-call s:SetHighlight('WarningMsg', s:orange, s:none, '')
+call s:SetHighlight('WarningMsg', s:warning, s:none, '')
 call s:SetHighlight('MoreMsg', s:fg, '', '')
 call s:SetHighlight('Question', s:fg, '', '')
 " }}}
@@ -298,17 +298,21 @@ call s:SetHighlight('jsxBraces', s:cyan, '', '')
 " call s:SetHighlight('jsxNamespace', s:green, '', '')
 " }}}
 " ale {{{
-call s:SetHighlight('ALEError', s:error_fg, s:error_bg, 'bold')
-call s:SetHighlight('ALEWarning', s:bg, s:warning, 'bold')
+call s:SetHighlight('ALEError', s:error_fg, s:none, 'bold')
+call s:SetHighlight('ALEWarning', s:warning, s:none, 'bold')
 call s:SetHighlight('ALEInfo', s:fg, s:none, '')
-call s:SetHighlight('ALEStyleError', s:error_fg, s:error_bg, 'bold')
-call s:SetHighlight('ALEStyleWarning', s:bg, s:warning, 'bold')
+call s:SetHighlight('ALEStyleError', s:error_fg, s:none, 'bold')
+call s:SetHighlight('ALEStyleWarning', s:warning, s:none, 'bold')
 " call s:SetHighlight('ALEErrorLine', s:fg, s:red, '')
 " call s:SetHighlight('ALEWarningLine', s:fg, s:orange, '')
 " call s:SetHighlight('ALEInfoLine', s:fg, s:none, 'bold')
 " }}}
 " lsp {{{
-call s:SetHighlight('LspDiagnosticsDefaultError', s:error_fg, s:error_bg, 'bold')
-call s:SetHighlight('LspDiagnosticsDefaultWarning', s:bg, s:warning, 'bold')
+call s:SetHighlight('DiagnosticError', s:error_fg, s:none, 'bold')
+call s:SetHighlight('DiagnosticWarn', s:warning, s:none, 'bold')
+call s:SetHighlight('DiagnosticInfo', s:fg, s:none, '')
+call s:SetHighlight('DiagnosticHint', s:hint_fg, s:none, '')
+call s:SetHighlight('LspDiagnosticsDefaultError', s:error_fg, s:none, 'bold')
+call s:SetHighlight('LspDiagnosticsDefaultWarning', s:warning, s:none, 'bold')
 call s:SetHighlight('LspDiagnosticsDefaultInformation', s:fg, s:none, '')
 " }}}

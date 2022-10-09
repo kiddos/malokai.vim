@@ -1,10 +1,9 @@
 ""
 "" Vim color scheme
 "" Maintainer: Joseph Yu
-"" Last Change: 2022 01 24
 ""
 
-hi clear
+" hi clear
 
 let color_name = "malokai"
 " set t_Co=256
@@ -43,7 +42,9 @@ let s:yellow = { 'gui': '#FFFF87', 'cterm': '228' }
 let s:orange = { 'gui': '#FF8700', 'cterm': '208' }
 
 let s:comment = { 'gui': '#535353', 'cterm': '243' }
-let s:error_fg = { 'gui': '#AF5FFF', 'cterm': '135' }
+" let s:error_fg = { 'gui': '#AF5FFF', 'cterm': '135' }
+" let s:error_fg = { 'gui': '#D70000', 'cterm': '160' }
+let s:error_fg = { 'gui': '#AF0000', 'cterm': '124' }
 let s:hint_fg = { 'gui': '#BCBCBC', 'cterm': '250' }
 let s:none = { 'gui': 'none', 'cterm': 'none' }
 let s:fg = { 'gui': '#D0D0D0', 'cterm': '252' }

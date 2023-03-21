@@ -3,7 +3,7 @@
 "" Maintainer: Joseph Yu
 ""
 
-" hi clear
+hi clear
 
 let color_name = "malokai"
 " set t_Co=256
@@ -36,7 +36,7 @@ endfunction
 let s:purple = { 'gui': '#D787FF', 'cterm': '177' }
 let s:red = { 'gui': '#D7005F', 'cterm': '161' }
 let s:dark_red = { 'gui': '#D70000', 'cterm': '160' }
-let s:green = { 'gui': '#87FF5F', 'cterm': '156' }
+let s:green = { 'gui': '#AFFF87', 'cterm': '156' }
 let s:cyan = { 'gui': '#87FFFF', 'cterm': '123' }
 let s:yellow = { 'gui': '#FFFF87', 'cterm': '228' }
 let s:orange = { 'gui': '#FF8700', 'cterm': '208' }
@@ -135,183 +135,162 @@ call s:SetHighlight('VisualNOS', '', s:select_bg, '')
 " }}}
 " other {{{
 call s:SetHighlight('SignColumn', s:fg, s:none, '')
-call s:SetHighlight('Directory', s:green, s:none, 'bold')
+call s:SetHighlight('Directory', s:green, s:none, '')
 call s:SetHighlight('NonText', s:green, s:none, '')
 call s:SetHighlight('Title', s:fg, '', '')
 call s:SetHighlight('MatchParen', s:orange, s:hl_bg, '')
 " }}}
 
+"	general syntax highlighting {{{
+" Comment {{{
+call s:SetHighlight('Comment', s:comment, '', 'italic') " comment
+" }}}
+"	Constants {{{
+call s:SetHighlight('Constant', s:purple, '', '') " any constant
+call s:SetHighlight('String', s:yellow, '', '') " "string"
+call s:SetHighlight('Character', s:purple, '', '') " 'c', '\n'
+call s:SetHighlight('Number', s:purple, '', '') " 123, 0xff
+call s:SetHighlight('Boolean', s:purple, '', 'bold') " true FALSE
+call s:SetHighlight('Float', s:purple, '', '') " 3.14
+"	}}}
+"	Identifier {{{
+call s:SetHighlight('Identifier', s:fg, '', '') " any variable name
+call s:SetHighlight('Function', s:green, '', '') " function name (also: methods for classes)
+"	}}}
+" Statement {{{
+call s:SetHighlight('Statement', s:red, '', '') " any statement
+call s:SetHighlight('Conditional', s:red, '', 'bold') " if, then, else, endif, switch, etc.
+call s:SetHighlight('Repeat', s:red, '', 'bold') " for, do, while, etc.
+call s:SetHighlight('Label', s:red, '', 'bold') " case, default, etc.
+call s:SetHighlight('Operator', s:fg, '', '') " "sizeof", "+", "*", etc.
+call s:SetHighlight('Keyword', s:red, '', '') " any other keyword, eg. return
+call s:SetHighlight('Exception', s:red, '', 'italic') " try, catch, throw
+" }}}
+" PreProc {{{
+call s:SetHighlight('PreProc', s:red, '', 'bold') " generic Preprocessor
+call s:SetHighlight('Include', s:red, '', 'bold') " #include
+call s:SetHighlight('Define', s:red, '', 'bold') " #define
+call s:SetHighlight('Macro', s:cyan, '', '') " same as Define
+call s:SetHighlight('PreCondit', s:red, '', 'bold') " preprocessor #if, #else, #endif, etc.
+" }}}
+" Type {{{
+call s:SetHighlight('Type', s:cyan, '', 'italic') " int, long, char, etc.
+call s:SetHighlight('StorageClass', s:cyan, '', 'italic') " static, register, volatile
+call s:SetHighlight('Structure', s:fg, '', 'italic') " struct, union, enum
+call s:SetHighlight('Typedef', s:cyan, '', 'italic') " typedef
+" }}}
+" Special {{{
+call s:SetHighlight('Special', s:cyan, '', '') " any special symbol
+call s:SetHighlight('SpecialChar', s:purple, '', '') " special character in a constant, eg. "\n"
+call s:SetHighlight('Tag', s:green, '', '') " you can use CTRL-] on this
+call s:SetHighlight('Delimiter', s:fg, '', '') " character that needs attention
+call s:SetHighlight('SpecialComment', s:orange, '', '') " special things inside a comment
+call s:SetHighlight('Debug', s:green, s:none, '') " debugging statements
+" }}}
+" Underlined {{{
+call s:SetHighlight('Underlined', s:orange, '', 'underline')
+" }}}
+" Ignore {{{
+call s:SetHighlight('Ignore', s:error_fg, '', 'bold') " left blank, hidden  |hl-Ignore|
+" }}}
+" Error {{{
+call s:SetHighlight('Error', s:red, s:bg, 'bold') " any erroneous construct
+" }}}
+" Todo {{{
+call s:SetHighlight('Todo', s:orange, s:bg, '') " TODO
+" }}}
+" }}}
+
 " tree-sitter {{{
 " comment {{{
-call s:SetHighlight('TSComment', s:comment, '', '')
-call s:SetHighlight('@comment', s:comment, '', '')
+call s:SetHighlight('@comment', s:comment, '', 'italic')
 " }}}
 " misc {{{
-call s:SetHighlight('@none', '', '', '')
-call s:SetHighlight('@preproc', s:red, '', 'bold')
-call s:SetHighlight('@define', s:red, '', 'bold')
+" call s:SetHighlight('@none', '', '', '')
+" call s:SetHighlight('@preproc', s:red, '', 'bold')
+" call s:SetHighlight('@define', s:red, '', 'bold')
 " }}}
 " constants {{{
-call s:SetHighlight('TSBoolean', s:purple, '', '')
-call s:SetHighlight('@boolean', s:purple, '', '')
-call s:SetHighlight('TSCharacter', s:purple, '', '')
-call s:SetHighlight('@character', s:purple, '', '')
-call s:SetHighlight('@character.special', s:purple, '', '')
-call s:SetHighlight('TSConstant', s:purple, '', '')
-call s:SetHighlight('TSFloat', s:purple, '', '')
-call s:SetHighlight('@float', s:purple, '', '')
-call s:SetHighlight('TSConstBuiltin', s:purple, '', '')
-call s:SetHighlight('TSNumber', s:purple, '', '')
-call s:SetHighlight('TSString', s:yellow, '', '')
-call s:SetHighlight('@string', s:yellow, '', '')
-call s:SetHighlight('TSStringRegex', s:yellow, '', '')
-call s:SetHighlight('@string.special', s:yellow, '', '')
-call s:SetHighlight('TSStringEscape', s:purple, '', '')
-call s:SetHighlight('@string.escape', s:yellow, '', '')
-call s:SetHighlight('TSNamespace', s:purple, '', '')
-call s:SetHighlight('@namespace', s:purple, '', '')
+" call s:SetHighlight('@boolean', s:purple, '', '')
+" call s:SetHighlight('@character', s:purple, '', '')
+" call s:SetHighlight('@character.special', s:purple, '', '')
+" call s:SetHighlight('@float', s:purple, '', '')
+" call s:SetHighlight('@string', s:yellow, '', '')
+" call s:SetHighlight('@string.special', s:yellow, '', '')
+" call s:SetHighlight('@string.escape', s:yellow, '', '')
+" call s:SetHighlight('@namespace', s:purple, '', '')
 " }}}
 " keywords {{{
-call s:SetHighlight('TSException', s:red, '', '')
-call s:SetHighlight('@exception', s:red, '', '')
-call s:SetHighlight('TSInclude', s:red, '', 'bold')
-call s:SetHighlight('@include', s:red, '', 'bold')
-call s:SetHighlight('TSKeyword', s:red, '', 'bold')
-call s:SetHighlight('@keyword', s:red, '', 'bold')
-call s:SetHighlight('TSKeywordFunction', s:red, '', 'bold')
-call s:SetHighlight('@keyword.function', s:red, '', 'bold')
-call s:SetHighlight('TSKeywordOperator', s:red, '', 'bold')
-call s:SetHighlight('@keyword.operator', s:red, '', 'bold')
-call s:SetHighlight('TSKeywordReturn', s:red, '', 'bold')
-call s:SetHighlight('@keyword.return', s:red, '', 'bold')
-call s:SetHighlight('TSRepeat', s:red, '', 'bold')
-call s:SetHighlight('@repeat', s:red, '', 'bold')
-call s:SetHighlight('TSConditional', s:red, '', 'bold')
-call s:SetHighlight('@conditional', s:red, '', 'bold')
+" call s:SetHighlight('@exception', s:cyan, '', '')
+" call s:SetHighlight('@include', s:red, '', 'bold')
+" call s:SetHighlight('@keyword', s:red, '', '')
+" call s:SetHighlight('@keyword.function', s:cyan, '', 'bold')
+" call s:SetHighlight('@keyword.operator', s:red, '', 'bold')
+" call s:SetHighlight('@keyword.return', s:red, '', 'bold')
+" call s:SetHighlight('@repeat', s:red, '', 'bold')
+" call s:SetHighlight('@conditional', s:red, '', 'bold')
 " }}}
 " function {{{
-call s:SetHighlight('TSFunction', s:green, '', '')
-call s:SetHighlight('@function', s:green, '', '')
-call s:SetHighlight('TSFuncBuiltin', s:green, '', '')
-call s:SetHighlight('@function.builtin', s:green, '', '')
-call s:SetHighlight('TSFuncMacro', s:green, '', '')
-call s:SetHighlight('@function.macro', s:green, '', '')
-call s:SetHighlight('TSConstMacro', s:green, '', '')
-call s:SetHighlight('TSMethod', s:green, '', '')
-call s:SetHighlight('@method', s:green, '', '')
-call s:SetHighlight('@method.call', s:green, '', '')
+" call s:SetHighlight('@function', s:green, '', '')
+" call s:SetHighlight('@function.builtin', s:green, '', '')
+" call s:SetHighlight('@function.macro', s:green, '', '')
+" call s:SetHighlight('@method', s:green, '', '')
+" call s:SetHighlight('@method.call', s:green, '', '')
 " }}}
 " parameters {{{
-call s:SetHighlight('TSParameter', s:orange, '', '')
-call s:SetHighlight('@parameter', s:orange, '', '')
-call s:SetHighlight('TSProperty', s:green, '', '')
-call s:SetHighlight('@property', s:green, '', '')
-call s:SetHighlight('TSField', s:green, '', '')
-call s:SetHighlight('@field', s:green, '', '')
-call s:SetHighlight('TSSymbol', s:orange, '', '')
-call s:SetHighlight('@symbol', s:orange, '', '')
-call s:SetHighlight('TSParameterReference', s:orange, '', '')
+" call s:SetHighlight('@parameter', s:fg, '', '')
+" call s:SetHighlight('@property', s:fg, '', '')
+" call s:SetHighlight('@field', s:fg, '', '')
+" call s:SetHighlight('@symbol', s:fg, '', '')
 " }}}
 " variable {{{
-call s:SetHighlight('TSVariable', s:fg, '', '')
-call s:SetHighlight('@variable', s:fg, '', '')
-call s:SetHighlight('TSVariableBuiltin', s:purple, '', '')
-call s:SetHighlight('@variable.builtin', s:purple, '', '')
+" call s:SetHighlight('@variable', s:fg, '', '')
+" call s:SetHighlight('@variable.builtin', s:fg, '', '')
 " }}}
 " operator {{{
-call s:SetHighlight('TSOperator', s:fg, '', '')
-call s:SetHighlight('@operator', s:fg, '', '')
-call s:SetHighlight('TSParameter', s:fg, '', '')
-call s:SetHighlight('@parameter', s:orange, '', '')
-call s:SetHighlight('TSPunctDelimiter', s:fg, '', '')
-call s:SetHighlight('@punctuation.delimiter', s:fg, '', '')
-call s:SetHighlight('TSPunctBracket', s:fg, '', '')
-call s:SetHighlight('@punctuation.bracket', s:fg, '', '')
-call s:SetHighlight('TSPunctSpecial', s:fg, '', '')
-call s:SetHighlight('@punctuation.special', s:fg, '', '')
+" call s:SetHighlight('@operator', s:fg, '', '')
+" call s:SetHighlight('@parameter', s:fg, '', '')
+" call s:SetHighlight('@punctuation.delimiter', s:fg, '', '')
+" call s:SetHighlight('@punctuation.bracket', s:fg, '', '')
+" call s:SetHighlight('@punctuation.special', s:fg, '', '')
 " }}}
 " label {{{
-call s:SetHighlight('TSLabel', s:orange, '', '')
-call s:SetHighlight('@label', s:orange, '', '')
+" call s:SetHighlight('@label', s:fg, '', '')
 " }}}
 " types {{{
-call s:SetHighlight('TSConstructor', s:cyan, '', '')
-call s:SetHighlight('@constructor', s:cyan, '', '')
-call s:SetHighlight('TSType', s:cyan, '', '')
-call s:SetHighlight('@type', s:cyan, '', '')
-call s:SetHighlight('TSTypeBuiltin', s:cyan, '', '')
-call s:SetHighlight('@type.builtin', s:cyan, '', '')
-call s:SetHighlight('@type.qualifier', s:cyan, '', '')
-call s:SetHighlight('@type.definition', s:cyan, '', '')
+" call s:SetHighlight('@constructor', s:cyan, '', '')
+" call s:SetHighlight('@type', s:cyan, '', '')
+" call s:SetHighlight('@type.builtin', s:cyan, '', '')
+" call s:SetHighlight('@type.qualifier', s:cyan, '', '')
+" call s:SetHighlight('@type.definition', s:cyan, '', '')
 " }}}
 " html {{{
-call s:SetHighlight('TSTag', s:cyan, '', '')
-call s:SetHighlight('@tag', s:cyan, '', '')
-call s:SetHighlight('TSTagDelimiter', s:fg, '', '')
-call s:SetHighlight('@tag.delimiter', s:fg, '', '')
-call s:SetHighlight('TSText', s:fg, '', '')
-call s:SetHighlight('@text', s:fg, '', '')
-call s:SetHighlight('TSStrong', s:fg, '', 'bold')
-call s:SetHighlight('@text.strong', s:fg, '', 'bold')
-call s:SetHighlight('TSEmphasis', s:fg, '', 'bold')
-call s:SetHighlight('@text.emphasis', s:fg, '', 'italic')
-call s:SetHighlight('TSUnderline', s:fg, '', 'underline')
-call s:SetHighlight('@text.underline', s:fg, '', 'underline')
-call s:SetHighlight('TSTitle', s:fg, '', 'bold')
-call s:SetHighlight('@text.title', s:fg, '', 'bold')
-call s:SetHighlight('TSLiteral', s:fg, '', '')
-call s:SetHighlight('@text.literal', s:fg, '', '')
-call s:SetHighlight('TSURI', s:cyan, '', '')
-call s:SetHighlight('@text.uri', s:cyan, '', '')
+call s:SetHighlight('@tag.html', s:red, '', '')
+call s:SetHighlight('@tag.delimiter.html', s:fg, '', '')
+call s:SetHighlight('@text.html', s:fg, '', '')
+call s:SetHighlight('@text.strong.html', s:fg, '', 'bold')
+call s:SetHighlight('@text.emphasis.html', s:fg, '', 'italic')
+call s:SetHighlight('@text.underline.html', s:fg, '', 'underline')
+call s:SetHighlight('@text.title.html', s:fg, '', 'bold')
+call s:SetHighlight('@text.literal.html', s:fg, '', '')
+call s:SetHighlight('@text.uri.html', s:cyan, '', 'italic')
 " }}}
-" error {{{
-" call s:SetHighlight('TSError', s:error_fg, s:error_bg, '')
+" js {{{
+" call s:SetHighlight('@structure.javascript', s:cyan, '', 'italic')
+" call s:SetHighlight('@identifier.javascript', s:orange, '', 'italic')
+" call s:SetHighlight('@variable.javascript', s:orange, '', 'bold')
+" call s:SetHighlight('@constructor.javascript', s:red, '', '')
+" call s:SetHighlight('@type.javascript', s:cyan, '', '')
+call s:SetHighlight('@tag.javascript', s:red, '', '')
+call s:SetHighlight('@tag.delimiter.javascript', s:fg, '', '')
+call s:SetHighlight('@text.javascript', s:fg, '', '')
+call s:SetHighlight('@text.strong.javascript', s:fg, '', 'bold')
+call s:SetHighlight('@text.emphasis.javascript', s:fg, '', 'italic')
+call s:SetHighlight('@text.underline.javascript', s:fg, '', 'underline')
+call s:SetHighlight('@text.title.javascript', s:fg, '', 'bold')
+call s:SetHighlight('@text.literal.javascript', s:fg, '', '')
+call s:SetHighlight('@text.uri.javascript', s:cyan, '', 'italic')
 " }}}
-" }}}
-
-"	general syntax highlighting {{{
-call s:SetHighlight('Constant', s:purple, '', '')
-call s:SetHighlight('String', s:yellow, '', '')
-call s:SetHighlight('Character', s:purple, '', '')
-call s:SetHighlight('Number', s:purple, '', '')
-call s:SetHighlight('Boolean', s:purple, '', 'bold')
-call s:SetHighlight('Float', s:purple, '', '')
-
-call s:SetHighlight('Identifier', s:orange, '', '')
-call s:SetHighlight('Function', s:green, '', '')
-
-call s:SetHighlight('Statement', s:red, '', 'bold')
-call s:SetHighlight('Conditional', s:red, '', 'bold')
-call s:SetHighlight('Repeat', s:red, '', 'bold')
-call s:SetHighlight('Label', s:red, '', 'bold')
-call s:SetHighlight('Operator', s:fg, '', '')
-call s:SetHighlight('Keyword', s:red, '', 'bold')
-call s:SetHighlight('Exception', s:red, '', 'bold')
-
-call s:SetHighlight('PreProc', s:red, '', 'bold')
-call s:SetHighlight('Include', s:yellow, '', 'bold')
-call s:SetHighlight('Define', s:red, '', 'bold')
-call s:SetHighlight('Macro', s:cyan, '', '')
-call s:SetHighlight('PreCondit', s:red, '', 'bold')
-
-call s:SetHighlight('Type', s:cyan, '', '')
-call s:SetHighlight('StorageClass', s:red, '', 'bold')
-call s:SetHighlight('Structure', s:red, '', 'bold')
-call s:SetHighlight('Typedef', s:cyan, '', '')
-
-call s:SetHighlight('Special', s:cyan, '', '')
-call s:SetHighlight('SpecialChar', s:cyan, '', '')
-call s:SetHighlight('Tag', s:green, '', '')
-call s:SetHighlight('Delimiter', s:fg, '', '')
-call s:SetHighlight('SpecialComment', s:comment, '', '')
-call s:SetHighlight('Debug', s:fg, s:none, '')
-
-call s:SetHighlight('Underlined', s:yellow, '', '')
-call s:SetHighlight('Comment', s:comment, '', '')
-" call s:SetHighlight('Ignore', s:error, '', 'bold')
-call s:SetHighlight('Error', s:red, s:bg, 'bold')
-call s:SetHighlight('Todo', s:orange, s:bg, '')
-call s:SetHighlight('Symbol', s:fg, '', 'bold')
 " }}}
 
 " lsp {{{

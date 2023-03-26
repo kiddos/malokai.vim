@@ -8,9 +8,9 @@ hi clear
 let color_name = "malokai"
 set background=dark
 
-" if exists("syntax_on")
-"   syntax reset
-" endif
+if exists("syntax_on")
+  syntax reset
+endif
 
 function s:SetHighlight(name, fg, bg, fontface)
   let l:fontface = a:fontface
@@ -18,6 +18,8 @@ function s:SetHighlight(name, fg, bg, fontface)
   if empty(l:fontface)
     let l:fontface = 'none'
   endif
+
+  exec 'hi link ' . a:name . ' NONE'
 
   if !empty(a:fg)
     exec 'hi ' . a:name . ' guifg=' . a:fg.gui . ' ctermfg=' . a:fg.cterm
@@ -84,8 +86,8 @@ call s:SetHighlight('Folded', s:folded, s:bg, '')
 call s:SetHighlight('FoldedColumn', s:folded, s:bg, '')
 " }}}
 " search {{{
-call s:SetHighlight('Search', s:none, s:hl_bg, '')
-call s:SetHighlight('IncSearch', s:none, s:hl_bg, '')
+call s:SetHighlight('Search', s:none, s:hl_bg, 'underline')
+call s:SetHighlight('IncSearch', s:none, s:hl_bg, 'italic')
 " }}}
 " line number {{{
 call s:SetHighlight('LineNr', s:line_number_fg, s:line_number_bg, '')
@@ -202,7 +204,7 @@ call s:SetHighlight('Todo', s:orange, s:bg, '') " TODO
 
 " tree-sitter {{{
 " comment {{{
-call s:SetHighlight('@comment', s:comment, '', 'italic')
+" call s:SetHighlight('@comment', s:comment, '', 'italic')
 " }}}
 " misc {{{
 " call s:SetHighlight('@none', '', '', '')
@@ -238,7 +240,7 @@ call s:SetHighlight('@comment', s:comment, '', 'italic')
 " }}}
 " parameters {{{
 " call s:SetHighlight('@parameter', s:fg, '', '')
-" call s:SetHighlight('@property', s:fg, '', '')
+" call s:SetHighlight('@property', s:orange, '', '')
 " call s:SetHighlight('@field', s:fg, '', '')
 " call s:SetHighlight('@symbol', s:fg, '', '')
 " }}}
@@ -263,36 +265,44 @@ call s:SetHighlight('@comment', s:comment, '', 'italic')
 " call s:SetHighlight('@type.qualifier', s:cyan, '', '')
 " call s:SetHighlight('@type.definition', s:cyan, '', '')
 " }}}
-" html {{{
-call s:SetHighlight('@tag.html', s:red, '', '')
-call s:SetHighlight('@tag.delimiter.html', s:fg, '', '')
-call s:SetHighlight('@text.html', s:fg, '', '')
-call s:SetHighlight('@text.strong.html', s:fg, '', 'bold')
-call s:SetHighlight('@text.emphasis.html', s:fg, '', 'italic')
-call s:SetHighlight('@text.underline.html', s:fg, '', 'underline')
-call s:SetHighlight('@text.title.html', s:fg, '', 'bold')
-call s:SetHighlight('@text.literal.html', s:fg, '', '')
-call s:SetHighlight('@text.uri.html', s:cyan, '', 'italic')
+" html, javascript, typescript tsx {{{
+let types = ['html', 'javascript', 'typescript', 'tsx']
+for t in types
+  call s:SetHighlight('@tag.' .. t , s:red, '', '')
+  call s:SetHighlight('@tag.delimiter.' .. t, s:fg, '', '')
+  call s:SetHighlight('@text.' .. t, s:fg, '', '')
+  call s:SetHighlight('@text.strong.' .. t, s:fg, '', 'bold')
+  call s:SetHighlight('@text.emphasis.' .. t, s:fg, '', 'italic')
+  call s:SetHighlight('@text.underline.' .. t, s:fg, '', 'underline')
+  call s:SetHighlight('@text.title.' .. t, s:fg, '', 'bold')
+  call s:SetHighlight('@text.literal.' .. t, s:fg, '', '')
+  call s:SetHighlight('@text.uri.' .. t, s:cyan, '', 'italic')
+endfor
 " }}}
-" js {{{
-" call s:SetHighlight('@structure.javascript', s:cyan, '', 'italic')
-" call s:SetHighlight('@identifier.javascript', s:orange, '', 'italic')
-" call s:SetHighlight('@variable.javascript', s:orange, '', 'bold')
-" call s:SetHighlight('@constructor.javascript', s:red, '', '')
-" call s:SetHighlight('@type.javascript', s:cyan, '', '')
-call s:SetHighlight('@tag.javascript', s:red, '', '')
-call s:SetHighlight('@tag.delimiter.javascript', s:fg, '', '')
-call s:SetHighlight('@text.javascript', s:fg, '', '')
-call s:SetHighlight('@text.strong.javascript', s:fg, '', 'bold')
-call s:SetHighlight('@text.emphasis.javascript', s:fg, '', 'italic')
-call s:SetHighlight('@text.underline.javascript', s:fg, '', 'underline')
-call s:SetHighlight('@text.title.javascript', s:fg, '', 'bold')
-call s:SetHighlight('@text.literal.javascript', s:fg, '', '')
-call s:SetHighlight('@text.uri.javascript', s:cyan, '', 'italic')
+" css {{{
+call s:SetHighlight('@attribute.css' , s:fg, '', '')
+call s:SetHighlight('@punctuation.delimiter.css', s:fg, '', '')
+call s:SetHighlight('@property.css' , s:cyan, '', 'italic')
 " }}}
 " }}}
 
 " lsp {{{
+call s:SetHighlight('@lsp.type.class', s:cyan, '', 'italic')
+call s:SetHighlight('@lsp.type.decorator', s:fg, '', '')
+call s:SetHighlight('@lsp.type.enum', s:cyan, '', 'italic')
+call s:SetHighlight('@lsp.type.enumMember', s:purple, '', 'bold')
+call s:SetHighlight('@lsp.type.function', s:green, '', '')
+call s:SetHighlight('@lsp.type.interface', s:fg, '', '')
+call s:SetHighlight('@lsp.type.macro', s:cyan, '', '')
+call s:SetHighlight('@lsp.type.method', s:green, '', '')
+call s:SetHighlight('@lsp.type.namespace', s:purple, '', 'italic')
+call s:SetHighlight('@lsp.type.parameter', s:fg, '', 'underline')
+call s:SetHighlight('@lsp.type.property', s:fg, '', '')
+call s:SetHighlight('@lsp.type.struct', s:fg, '', '')
+call s:SetHighlight('@lsp.type.type', s:cyan, '', 'italic')
+call s:SetHighlight('@lsp.type.typeParameter', s:cyan, '', '')
+call s:SetHighlight('@lsp.type.variable', s:fg, '', '')
+
 call s:SetHighlight('DiagnosticError', s:error_fg, s:none, 'bold')
 call s:SetHighlight('DiagnosticWarn', s:warning, s:none, 'bold')
 call s:SetHighlight('DiagnosticInfo', s:fg, s:none, '')

@@ -6,8 +6,7 @@
 hi clear
 
 let color_name = "malokai"
-" set t_Co=256
-" set background=dark
+set background=dark
 
 " if exists("syntax_on")
 "   syntax reset

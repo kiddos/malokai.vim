@@ -50,6 +50,7 @@ let s:hint_fg = { 'gui': '#BCBCBC', 'cterm': '250' }
 let s:none = { 'gui': 'none', 'cterm': 'none' }
 let s:fg = { 'gui': '#D0D0D0', 'cterm': '252' }
 let s:bg = { 'gui': '#1C1C1C', 'cterm': '234' }
+let s:window_bg = { 'gui': '#262626', 'cterm': '235' }
 
 let s:folded = { 'gui': '#BCBCBC', 'cterm': '250' }
 let s:hl_bg = { 'gui': '#080808', 'cterm': '232' }
@@ -310,4 +311,7 @@ call s:SetHighlight('DiagnosticHint', s:hint_fg, s:none, '')
 call s:SetHighlight('LspDiagnosticsDefaultError', s:error_fg, s:none, 'bold')
 call s:SetHighlight('LspDiagnosticsDefaultWarning', s:warning, s:none, 'bold')
 call s:SetHighlight('LspDiagnosticsDefaultInformation', s:fg, s:none, '')
+" }}}
+" LspSaga {{{
+call s:SetHighlight('SagaNormal', s:fg, s:window_bg, '')
 " }}}

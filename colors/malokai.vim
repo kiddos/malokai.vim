@@ -34,65 +34,64 @@ function s:SetHighlight(name, fg, bg, fontface)
   endif
 endfunction
 
-let s:purple = { 'gui': '#D787FF', 'cterm': '177' }
-let s:red = { 'gui': '#D7005F', 'cterm': '161' }
+let s:purple = { 'gui': '#AE85FC', 'cterm': '177' }
+let s:red = { 'gui': '#F62D57', 'cterm': '161' }
 let s:dark_red = { 'gui': '#D70000', 'cterm': '160' }
-let s:green = { 'gui': '#AFFF87', 'cterm': '156' }
-let s:cyan = { 'gui': '#87FFFF', 'cterm': '123' }
-let s:yellow = { 'gui': '#FFFF87', 'cterm': '228' }
-let s:orange = { 'gui': '#FF8700', 'cterm': '208' }
+let s:green = { 'gui': '#82DD73', 'cterm': '156' }
+let s:cyan = { 'gui': '#6BD9ED', 'cterm': '123' }
+let s:yellow = { 'gui': '#E6DA7B', 'cterm': '228' }
+let s:orange = { 'gui': '#FB9633', 'cterm': '208' }
 
-let s:comment = { 'gui': '#535353', 'cterm': '243' }
-" let s:error_fg = { 'gui': '#AF5FFF', 'cterm': '135' }
-" let s:error_fg = { 'gui': '#D70000', 'cterm': '160' }
-let s:error_fg = { 'gui': '#D75F00', 'cterm': '166' }
+let s:comment = { 'gui': '#808890', 'cterm': '243' }
+let s:error_fg = { 'gui': '#F14C50', 'cterm': '166' }
 let s:hint_fg = { 'gui': '#BCBCBC', 'cterm': '250' }
 let s:none = { 'gui': 'none', 'cterm': 'none' }
-let s:fg = { 'gui': '#D0D0D0', 'cterm': '252' }
-let s:bg = { 'gui': '#1C1C1C', 'cterm': '234' }
-let s:window_bg = { 'gui': '#262626', 'cterm': '235' }
+let s:fg = { 'gui': '#E8E8E3', 'cterm': '252' }
+let s:bg = { 'gui': '#242424', 'cterm': '234' }
 
 let s:folded = { 'gui': '#BCBCBC', 'cterm': '250' }
-let s:hl_bg = { 'gui': '#080808', 'cterm': '232' }
-let s:warning = { 'gui': '#FF8700', 'cterm': '208' }
+let s:hl_bg = { 'gui': '#2B2B2B', 'cterm': '232' }
+let s:warning = { 'gui': '#F1854C', 'cterm': '208' }
 let s:line_number_fg = { 'gui': '#949494', 'cterm': '246' }
-let s:line_number_bg = { 'gui': '#262626', 'cterm': '235' }
+let s:line_number_bg = { 'gui': '#242424', 'cterm': '235' }
+let s:cursor_line_number_bg = { 'gui': '#3e3d32', 'cterm': '235' }
 
-let s:menu_bg = { 'gui': '#303030', 'cterm': '236' }
-let s:menu_selected_bg = { 'gui': '#4E4E4E', 'cterm': '239' }
+let s:menu_bg = { 'gui': '#363636', 'cterm': '236' }
+let s:menu_selected_bg = { 'gui': '#4F4F4F', 'cterm': '239' }
 let s:menu_thumb = { 'gui': '#6C6C6C', 'cterm': '242' }
 let s:menu_thumb_bg = { 'gui': '#262626', 'cterm': '235' }
 
-let s:select_bg = { 'gui': '#303030', 'cterm': '236'}
+let s:select_bg = { 'gui': '#383A3E', 'cterm': '236'}
 
-let s:tab_bg = { 'gui': '#262626', 'cterm': '235' }
+let s:tab_bg = { 'gui': '#171814', 'cterm': '235' }
 let s:tab_bg_fill = { 'gui': '#080808', 'cterm': '232' }
-let s:tab_bg_selected = { 'gui': '#3A3A3A', 'cterm': '237' }
+let s:tab_bg_selected = { 'gui': '#272822', 'cterm': '237' }
 
 " normal & cursor {{{
 call s:SetHighlight('Normal', s:fg, s:bg, '')
+call s:SetHighlight('NormalFloat', s:fg, s:bg, '')
 call s:SetHighlight('Cursor', '', '', 'reverse')
 call s:SetHighlight('CursorIM', '', '', 'reverse')
 call s:SetHighlight('CursorColumn', s:none, '', 'reverse')
-call s:SetHighlight('CursorLine', s:none, '', '')
+call s:SetHighlight('CursorLine', s:none, s:bg, '')
 " }}}
 " diff {{{
-call s:SetHighlight('DiffAdd', '', '', '')
-call s:SetHighlight('DiffChange', '', '', '')
-call s:SetHighlight('DiffDelete', '', '', '')
-call s:SetHighlight('DiffText', '', '', '')
+call s:SetHighlight('DiffAdd', s:green, s:bg, '')
+call s:SetHighlight('DiffChange', s:yellow, s:bg, '')
+call s:SetHighlight('DiffDelete', s:red, s:bg, '')
+call s:SetHighlight('DiffText', s:fg, s:bg, '')
 " }}}
 " fold {{{
 call s:SetHighlight('Folded', s:folded, s:bg, '')
-call s:SetHighlight('FoldedColumn', s:folded, s:bg, '')
+call s:SetHighlight('FoldColumn', s:folded, s:bg, '')
 " }}}
 " search {{{
-call s:SetHighlight('Search', s:none, s:hl_bg, 'underline')
+call s:SetHighlight('Search', s:none, s:bg, 'underline')
 call s:SetHighlight('IncSearch', s:none, s:hl_bg, 'italic')
 " }}}
 " line number {{{
 call s:SetHighlight('LineNr', s:line_number_fg, s:line_number_bg, '')
-call s:SetHighlight('CursorLineNr', s:fg, s:line_number_bg, 'bold')
+call s:SetHighlight('CursorLineNr', s:fg, s:cursor_line_number_bg, 'bold')
 " }}}
 " message {{{
 call s:SetHighlight('ErrorMsg', s:red, s:none, '')
@@ -137,9 +136,10 @@ call s:SetHighlight('VisualNOS', '', s:select_bg, '')
 " }}}
 " other {{{
 call s:SetHighlight('SignColumn', s:fg, s:none, '')
-call s:SetHighlight('Directory', s:green, s:none, '')
+call s:SetHighlight('Directory', s:fg, s:none, '')
 call s:SetHighlight('NonText', s:green, s:none, '')
 call s:SetHighlight('Title', s:fg, '', '')
+call s:SetHighlight('FloatTitle', s:green, '', '')
 call s:SetHighlight('MatchParen', s:orange, s:hl_bg, '')
 " }}}
 
@@ -301,7 +301,7 @@ call s:SetHighlight('@lsp.type.parameter', s:fg, '', 'underline')
 call s:SetHighlight('@lsp.type.property', s:fg, '', '')
 call s:SetHighlight('@lsp.type.struct', s:fg, '', '')
 call s:SetHighlight('@lsp.type.type', s:cyan, '', 'italic')
-call s:SetHighlight('@lsp.type.typeParameter', s:cyan, '', '')
+call s:SetHighlight('@lsp.type.typeParameter', s:fg, '', '')
 call s:SetHighlight('@lsp.type.variable', s:fg, '', '')
 
 call s:SetHighlight('DiagnosticError', s:error_fg, s:none, 'bold')
@@ -311,7 +311,4 @@ call s:SetHighlight('DiagnosticHint', s:hint_fg, s:none, '')
 call s:SetHighlight('LspDiagnosticsDefaultError', s:error_fg, s:none, 'bold')
 call s:SetHighlight('LspDiagnosticsDefaultWarning', s:warning, s:none, 'bold')
 call s:SetHighlight('LspDiagnosticsDefaultInformation', s:fg, s:none, '')
-" }}}
-" LspSaga {{{
-call s:SetHighlight('SagaNormal', s:fg, s:window_bg, '')
 " }}}

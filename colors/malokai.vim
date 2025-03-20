@@ -56,8 +56,8 @@ let s:line_number_fg = { 'gui': '#949494', 'cterm': '246' }
 let s:line_number_bg = { 'gui': '#242424', 'cterm': '235' }
 let s:cursor_line_number_bg = { 'gui': '#3e3d32', 'cterm': '235' }
 
-let s:menu_bg = { 'gui': '#363636', 'cterm': '236' }
-let s:menu_selected_bg = { 'gui': '#4F4F4F', 'cterm': '239' }
+let s:menu_bg = { 'gui': '#303030', 'cterm': '236' }
+let s:menu_selected_bg = { 'gui': '#363636', 'cterm': '239' }
 let s:menu_thumb = { 'gui': '#6C6C6C', 'cterm': '242' }
 let s:menu_thumb_bg = { 'gui': '#262626', 'cterm': '235' }
 
@@ -101,7 +101,7 @@ call s:SetHighlight('Question', s:fg, '', '')
 " }}}
 " popup menu {{{
 call s:SetHighlight('Pmenu', s:fg, s:menu_bg, '')
-call s:SetHighlight('PmenuSel', s:fg, s:menu_selected_bg, 'bold')
+call s:SetHighlight('PmenuSel', s:none, s:menu_selected_bg, 'bold')
 call s:SetHighlight('PmenuSbar', s:menu_thumb_bg, s:menu_thumb_bg, '')
 call s:SetHighlight('PmenuThumb', s:menu_thumb, s:menu_thumb, '')
 " }}}
